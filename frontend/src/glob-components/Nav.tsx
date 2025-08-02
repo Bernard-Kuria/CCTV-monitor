@@ -1,16 +1,16 @@
 export default function Nav() {
   return (
-    <nav className="inline-flex items-center justify-between w-full px-4 py-2 bg-white shadow-md">
+    <nav className="inline-flex items-center justify-between w-full px-4 py-2 shadow-md fixed backdrop-blur h-18 top-0 z-[2]">
       <div className="flex items-center gap-2">
         <img
           src="image.jpg"
           alt="camera-image"
           className="h-8 w-8 object-cover rounded-full"
         />
-        <span className="font-bold text-lg">CCTV Monitor</span>
+        <span className="font-bold text-lg w-20">CCTV Monitor</span>
       </div>
 
-      <ul className="flex border border-black w-[550px] justify-between px-2">
+      <ul className="flex w-[550px] justify-between px-2 text-gray-500">
         {[
           "Dashboard",
           "Live Cameras",
@@ -28,17 +28,17 @@ export default function Nav() {
         ))}
       </ul>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-4">
         <div className="relative">
           <input
             type="text"
-            placeholder="Search"
-            className="px-2 py-1 border rounded"
+            placeholder="Search cameras or clients..."
+            className="px-2 py-1 border border-gray-300 rounded w-80 text-sm"
           />
           <div className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-gray-400 rounded-full"></div>
         </div>
 
-        <button className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
+        <button className="bg-black text-white px-3 py-1 rounded hover:bg-stone-700">
           + Add Camera
         </button>
 

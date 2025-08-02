@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+/* For WebKit-based browsers (Chrome, Safari, Edge) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default styling */
+  appearance: none;
+  width: 12px; /* Adjust as desired */
+  height: 12px; /* Adjust as desired */
+  background-color: #000000; /* Example color (Tailwind blue-500) */
+  border-radius: 50%; /* Make it circular */
+  /* Add any other desired styles like border, box-shadow, etc. */
+}
+
+/* For Mozilla Firefox */
+input[type="range"]::-moz-range-thumb {
+  width: 12px; /* Adjust as desired */
+  height: 12px; /* Adjust as desired */
+  background-color: #000000; /* Example color (Tailwind blue-500) */
+  border-radius: 50%; /* Make it circular */
+  /* Add any other desired styles */
+}
