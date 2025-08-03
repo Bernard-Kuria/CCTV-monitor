@@ -1,6 +1,6 @@
 This is a CCTV camera monitoring website that can be used by CCTV installers to manage, maintain and monitor the health conditions of different CCTVs for their clients.📹📈🚀
 
-I've made this website using Typescript + Tailwind for the frontend and Firebase tools for the backend, database, cloud and hosting.
+I've made this website using React + Typescript + Tailwind for the frontend and Firebase tools for the backend, database, cloud and hosting.
 
 This website can be adjusted to monitor other things.
 
