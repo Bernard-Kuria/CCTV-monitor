@@ -30,6 +30,8 @@ export default function PieGraph() {
     responsive: true,
     cutout: "60%",
     animation: {
+      animateRotate: true,
+      animateScale: true,
       duration: 1000,
     },
     plugins: {

@@ -53,13 +53,16 @@ export default function LineGraph() {
   }, []);
 
   const options: ChartOptions<"line"> = {
-    maintainAspectRatio: false, // ❗ disables default ratio
+    maintainAspectRatio: false,
     responsive: true,
     animation: {
       duration: 1000,
       easing: "linear",
     },
     plugins: {
+      legend: {
+        display: false,
+      },
       tooltip: {
         enabled: true,
         backgroundColor: "#000",

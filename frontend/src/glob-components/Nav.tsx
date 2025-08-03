@@ -1,4 +1,15 @@
+import { useContext } from "react";
+import { ThemeContext } from "./context/UserContext";
+import { Link } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function Nav() {
+  const context = useContext(ThemeContext);
+  if (!context) throw new Error("ThemeContext is missing!");
+
+  const { theme, setTheme } = context;
+
   return (
     <nav className="inline-flex items-center justify-between w-full px-4 py-2 shadow-md fixed backdrop-blur h-18 top-0 z-[2]">
       <div className="flex items-center gap-2">
@@ -7,25 +18,30 @@ export default function Nav() {
           alt="camera-image"
           className="h-8 w-8 object-cover rounded-full"
         />
-        <span className="font-bold text-lg w-20">CCTV Monitor</span>
+        <span className="font-bold text-lg w-20 dark:text-gray-100">
+          CCTV Monitor
+        </span>
       </div>
 
-      <ul className="flex w-[550px] justify-between px-2 text-gray-500">
-        {[
-          "Dashboard",
-          "Live Cameras",
-          "Manage Cameras",
-          "Clients",
-          "Maintenance",
-          "Reports",
-        ].map((item, idx) => (
-          <li
-            key={idx}
-            className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal text-sm"
-          >
-            {item}
-          </li>
-        ))}
+      <ul className="flex w-[550px] justify-between px-2 text-gray-500 dark:text-gray-100">
+        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal text-sm hover:text-black">
+          <Link to={`../dashboard`}>dashboard</Link>
+        </li>
+        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal text-sm hover:text-black">
+          <Link to={`../feed`}>Live Cameras</Link>
+        </li>
+        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal text-sm hover:text-black">
+          <Link to={`../management`}>Manage Cameras</Link>
+        </li>
+        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal text-sm hover:text-black">
+          <Link to={`../clients`}>Clients</Link>
+        </li>
+        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal text-sm hover:text-black">
+          <Link to={`../maintenance`}>Maintenance</Link>
+        </li>
+        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal text-sm hover:text-black">
+          <Link to={`../reports`}>Reports</Link>
+        </li>
       </ul>
 
       <div className="flex items-center gap-4">
@@ -33,7 +49,7 @@ export default function Nav() {
           <input
             type="text"
             placeholder="Search cameras or clients..."
-            className="px-2 py-1 border border-gray-300 rounded w-80 text-sm"
+            className="px-2 py-1 border border-gray-300 dark:border-gray-500 dark:text-gray-200 rounded w-80 text-sm"
           />
           <div className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-gray-400 rounded-full"></div>
         </div>
@@ -48,6 +64,16 @@ export default function Nav() {
             3
           </div>
         </div>
+
+        <button
+          className="theme cursor-pointer p-2 rounded hover:bg-gray-200 dark:hover:bg-green-500 transition"
+          onClick={() => setTheme(theme === "bright" ? "dark" : "bright")}
+        >
+          <FontAwesomeIcon
+            className="text-black dark:text-white"
+            icon={theme === "dark" ? "sun" : "moon"}
+          />
+        </button>
 
         <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
       </div>
