@@ -3,16 +3,14 @@ export default function StatusMonitor() {
     <div>
       <div className="font-[600] dark:text-gray-200">Camera Status Monitor</div>
       <div
-        className="monitoring relative w-[100%] border border-gray-300 dark:border-gray-500 rounded-[10px]
+        className="monitoring relative w-[100%] border
       p-5 mb-10 grid gap-4"
       >
         <div className=" dark:text-gray-300">
           Camera Monitoring
           <div className="absolute right-5 top-5 text-[12px] flex gap-2">
-            <div className="bg-gray-300 rounded-[5px] px-[4px]">142 Online</div>
-            <div className="text-red-500 bg-gray-300 rounded-[5px] px-[4px]">
-              8 Issues
-            </div>
+            <div className="shaded-texts">142 Online</div>
+            <div className="text-red-500 shaded-texts">8 Issues</div>
           </div>
         </div>
         <table className="w-full border-collapse text-sm">

@@ -11,7 +11,7 @@ export default function Nav() {
   const { theme, setTheme } = context;
 
   return (
-    <nav className="inline-flex items-center justify-between w-full px-4 py-2 shadow-md fixed backdrop-blur h-18 top-0 z-[2]">
+    <nav className="inline-flex items-center justify-between w-full px-4 py-2 shadow-[0_4px_6px_-1px_rgba(51,51,51,_0.1)] fixed backdrop-blur h-18 top-0 z-[2] dark:shadow-[0_4px_6px_-1px_rgba(153,153,153,_0.1)]">
       <div className="flex items-center gap-2">
         <img
           src="image.jpg"
@@ -23,23 +23,23 @@ export default function Nav() {
         </span>
       </div>
 
-      <ul className="flex w-[550px] justify-between px-2 text-gray-500 dark:text-gray-100">
-        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal text-sm hover:text-black">
+      <ul className="flex w-[550px] justify-between px-2 text-normal">
+        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
           <Link to={`../dashboard`}>dashboard</Link>
         </li>
-        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal text-sm hover:text-black">
+        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
           <Link to={`../feed`}>Live Cameras</Link>
         </li>
-        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal text-sm hover:text-black">
+        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
           <Link to={`../management`}>Manage Cameras</Link>
         </li>
-        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal text-sm hover:text-black">
+        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
           <Link to={`../clients`}>Clients</Link>
         </li>
-        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal text-sm hover:text-black">
+        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
           <Link to={`../maintenance`}>Maintenance</Link>
         </li>
-        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal text-sm hover:text-black">
+        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
           <Link to={`../reports`}>Reports</Link>
         </li>
       </ul>
@@ -49,14 +49,12 @@ export default function Nav() {
           <input
             type="text"
             placeholder="Search cameras or clients..."
-            className="px-2 py-1 border border-gray-300 dark:border-gray-500 dark:text-gray-200 rounded w-80 text-sm"
+            className="input"
           />
           <div className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-gray-400 rounded-full"></div>
         </div>
 
-        <button className="bg-black text-white px-3 py-1 rounded hover:bg-stone-700">
-          + Add Camera
-        </button>
+        <button className="button">+ Add Camera</button>
 
         <div className="relative">
           <div className="w-5 h-5 bg-gray-400 rounded-full"></div>
