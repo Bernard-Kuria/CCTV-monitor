@@ -25,7 +25,7 @@ export default function Nav() {
 
       <ul className="flex w-[550px] justify-between px-2 text-normal">
         <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
-          <Link to={`../dashboard`}>dashboard</Link>
+          <Link to={`../`}>dashboard</Link>
         </li>
         <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
           <Link to={`../feed`}>Live Cameras</Link>
