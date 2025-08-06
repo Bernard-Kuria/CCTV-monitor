@@ -21,14 +21,18 @@ export default function OverviewSummary() {
                 <h3 className="mini-text-normal">Total Cameras</h3>
                 <div className="flex items-center gap-2 mt-2">
                   <h1 className="text-values leading-none">155</h1>
-                  <h4 className="text-green-500 shaded-texts">+3 this week</h4>
+                  <h4 className="text-(--green-primary) shaded-texts">
+                    +3 this week
+                  </h4>
                 </div>
               </li>
               <li>
                 <h3 className="mini-text-normal">System Uptime</h3>
                 <div className="flex items-center gap-2 mt-2">
                   <h1 className="text-values leading-none">99.1%</h1>
-                  <h4 className="text-blue-500 shaded-texts">24h avg</h4>
+                  <h4 className="text-(--blue-primary) shaded-texts">
+                    24h avg
+                  </h4>
                 </div>
               </li>
               <li>

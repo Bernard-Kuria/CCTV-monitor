@@ -3,14 +3,14 @@ export default function StatusMonitor() {
     <div>
       <div className="font-[600] dark:text-gray-200">Camera Status Monitor</div>
       <div
-        className="monitoring relative w-[100%] border
+        className="monitoring relative w-[100%] component-border
       p-5 mb-10 grid gap-4"
       >
         <div className=" dark:text-gray-300">
           Camera Monitoring
           <div className="absolute right-5 top-5 text-[12px] flex gap-2">
             <div className="shaded-texts">142 Online</div>
-            <div className="text-red-500 shaded-texts">8 Issues</div>
+            <div className="text-(--red-primary) shaded-texts">8 Issues</div>
           </div>
         </div>
         <table className="w-full border-collapse text-sm">
@@ -40,7 +40,7 @@ export default function StatusMonitor() {
                 TechCorp HQ
               </td>
               <td className="px-4 py-2 text-left">
-                <div className="bg-green-200 text-green-500 w-fit px-2 rounded-[5px]">
+                <div className="bg-(--green-light) text-(--green-primary) w-fit px-2 rounded-[5px]">
                   Online
                 </div>
               </td>
@@ -49,10 +49,10 @@ export default function StatusMonitor() {
               </td>
               <td className="px-4 py-2 text-left font-[600] dark:text-gray-200">
                 99.2%
-                <div className="h-1 w-full rounded-2xl bg-gray-300 relative overflow-hidden after:bg-green-500 after:absolute after:w-[91.6%] after:h-full after:left-0 after:content-['']"></div>
+                <div className="h-1 w-full rounded-2xl bg-gray-300 relative overflow-hidden after:bg-(--green-primary) after:absolute after:w-[91.6%] after:h-full after:left-0 after:content-['']"></div>
               </td>
               <td className="px-4 py-2 text-left ">
-                <div className="text-green-500 bg-green-200 w-fit px-2 rounded-[5px]">
+                <div className="text-(--green-primary) bg-(--green-light) w-fit px-2 rounded-[5px]">
                   Good
                 </div>
               </td>
@@ -77,7 +77,7 @@ export default function StatusMonitor() {
                 TechCorp HQ
               </td>
               <td className="px-4 py-2 text-left">
-                <div className="bg-green-200 text-green-500 w-fit px-2 rounded-[5px]">
+                <div className="bg-(--green-light) text-(--green-primary) w-fit px-2 rounded-[5px]">
                   Online
                 </div>
               </td>
@@ -86,10 +86,10 @@ export default function StatusMonitor() {
               </td>
               <td className="px-4 py-2 text-left font-[600] dark:text-gray-200">
                 99.8%
-                <div className="h-1 w-full rounded-2xl bg-gray-300 relative overflow-hidden after:bg-green-500 after:absolute after:w-[91.6%] after:h-full after:left-0 after:content-['']"></div>
+                <div className="h-1 w-full rounded-2xl bg-gray-300 relative overflow-hidden after:bg-(--green-primary) after:absolute after:w-[91.6%] after:h-full after:left-0 after:content-['']"></div>
               </td>
               <td className="px-4 py-2 text-left ">
-                <div className="text-green-500 bg-green-200 w-fit px-2 rounded-[5px]">
+                <div className="text-(--green-primary) bg-(--green-light) w-fit px-2 rounded-[5px]">
                   Good
                 </div>
               </td>
@@ -114,7 +114,7 @@ export default function StatusMonitor() {
                 RetailPlus Store
               </td>
               <td className="px-4 py-2 text-left">
-                <div className="bg-red-200 text-red-500 w-fit px-2 rounded-[5px]">
+                <div className="bg-(--red-light) text-(--red-primary) w-fit px-2 rounded-[5px]">
                   Offline 2 alerts
                 </div>
               </td>
@@ -123,10 +123,10 @@ export default function StatusMonitor() {
               </td>
               <td className="px-4 py-2 text-left font-[600] dark:text-gray-200">
                 87.3%
-                <div className="h-1 w-full rounded-2xl bg-gray-300 relative overflow-hidden after:bg-red-500 after:absolute after:w-[91.6%] after:h-full after:left-0 after:content-['']"></div>
+                <div className="h-1 w-full rounded-2xl bg-gray-300 relative overflow-hidden after:bg-(--red-primary) after:absolute after:w-[91.6%] after:h-full after:left-0 after:content-['']"></div>
               </td>
               <td className="px-4 py-2 text-left ">
-                <div className="text-red-500 bg-red-200 w-fit px-2 rounded-[5px]">
+                <div className="text-(--red-primary) bg-(--red-light) w-fit px-2 rounded-[5px]">
                   Poor
                 </div>
               </td>

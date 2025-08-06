@@ -17,10 +17,10 @@ export default function Feed() {
         <CamSorter />
         <ul className="flex gap-1">
           <li className="shaded-texts">6 Cameras</li>
-          <li className="shaded-texts text-green-600">3 Online</li>
-          <li className="shaded-texts text-red-600">2 Offline</li>
-          <li className="shaded-texts text-orange-600">0 Error</li>
-          <li className="shaded-texts text-blue-600">1 Connecting</li>
+          <li className="shaded-texts text-(--green-primary)">3 Online</li>
+          <li className="shaded-texts text-(--red-primary)">2 Offline</li>
+          <li className="shaded-texts text-(--orange-primary)">0 Error</li>
+          <li className="shaded-texts text-(--blue-primary)">1 Connecting</li>
         </ul>
         <CameraView />
       </div>
