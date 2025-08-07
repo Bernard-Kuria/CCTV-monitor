@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function StatusMonitor() {
   return (
     <div>
@@ -41,6 +43,10 @@ export default function StatusMonitor() {
               </td>
               <td className="px-4 py-2 text-left">
                 <div className="bg-(--green-light) text-(--green-primary) w-fit px-2 rounded-[5px]">
+                  <FontAwesomeIcon
+                    className="relative"
+                    icon={["fas", "arrow-trend-up"]}
+                  />{" "}
                   Online
                 </div>
               </td>
@@ -56,7 +62,7 @@ export default function StatusMonitor() {
                   Good
                 </div>
               </td>
-              <td className="px-4 py-2 text-left font-[600] dark:text-gray-200">
+              <td className="relative px-4 py-2 text-left font-[600] before:absolute before:bottom-6 before:left-0 before:w-[7px] before:h-[7px] before:bg-(--green-secondary) before:rounded-[50%] dark:text-gray-200">
                 95%
               </td>
               <td className="px-4 py-2 items-center">
@@ -78,6 +84,10 @@ export default function StatusMonitor() {
               </td>
               <td className="px-4 py-2 text-left">
                 <div className="bg-(--green-light) text-(--green-primary) w-fit px-2 rounded-[5px]">
+                  <FontAwesomeIcon
+                    className="relative"
+                    icon={["fas", "arrow-trend-up"]}
+                  />{" "}
                   Online
                 </div>
               </td>
@@ -93,7 +103,7 @@ export default function StatusMonitor() {
                   Good
                 </div>
               </td>
-              <td className="px-4 py-2 text-left font-[600] dark:text-gray-200">
+              <td className="relative px-4 py-2 text-left font-[600] before:absolute before:bottom-6 before:left-0 before:w-[7px] before:h-[7px] before:bg-(--green-secondary) before:rounded-[50%] dark:text-gray-200">
                 88%
               </td>
               <td className="px-4 py-2 items-center">
@@ -107,14 +117,18 @@ export default function StatusMonitor() {
                 CAM-003
               </td>
               <td className="px-4 py-2 text-left font-[500] dark:text-gray-300">
-                Storage Room{" "}
+                Storage Room
                 <div className="text-gray-400">Warehouse - Level 2</div>
               </td>
               <td className="px-4 py-2 text-left dark:text-gray-300">
                 RetailPlus Store
               </td>
-              <td className="px-4 py-2 text-left">
-                <div className="bg-(--red-light) text-(--red-primary) w-fit px-2 rounded-[5px]">
+              <td className="px-4 py-2 text-left text-sm">
+                <div className="flex bg-(--red-light) text-(--red-primary) w-fit px-2 rounded-[5px]">
+                  <div className="relative w-[20px]">
+                    <FontAwesomeIcon className="" icon={["fas", "wifi"]} />
+                    <div className="diagonal-line"></div>
+                  </div>{" "}
                   Offline 2 alerts
                 </div>
               </td>
@@ -130,7 +144,7 @@ export default function StatusMonitor() {
                   Poor
                 </div>
               </td>
-              <td className="px-4 py-2 text-left font-[600] dark:text-gray-200">
+              <td className="relative px-4 py-2 text-left font-[600] before:absolute before:bottom-6 before:left-0 before:w-[7px] before:h-[7px] before:bg-(--red-secondary) before:rounded-[50%] dark:text-gray-200">
                 0%
               </td>
               <td className="px-4 py-2 items-center">

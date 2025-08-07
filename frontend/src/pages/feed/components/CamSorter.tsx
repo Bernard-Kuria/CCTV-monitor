@@ -1,6 +1,6 @@
 export default function CamSorter() {
   return (
-    <div className="component-border flex h-[80px] items-center justify-between p-5">
+    <div className="component-border flex h-[60px] items-center justify-between p-5">
       <div className="flex gap-[20px]">
         <input className="input" type="text" placeholder="Search cameras ..." />
         <select name="" id="" className="selector">
@@ -19,7 +19,7 @@ export default function CamSorter() {
         </select>
       </div>
 
-      <div className="flex gap-[10px]">
+      <div className="flex gap-[10px] items-center">
         <button className="button">Auto-refresh</button>
         <div className="mini-text-normal">| Grid:</div>
         <button className="button">2x2</button>

@@ -6,10 +6,7 @@ import Clients from "./pages/clients/Clients.tsx";
 import Maintenance from "./pages/maintenance/Maintenance.tsx";
 import Management from "./pages/management/Management.tsx";
 import Reports from "./pages/reports/Reports.tsx";
-
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
-library.add(faMoon, faSun);
+import "./glob-components/icons.ts";
 
 export default function App() {
   return (

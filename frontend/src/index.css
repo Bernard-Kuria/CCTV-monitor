@@ -47,7 +47,7 @@
 }
 
 .shaded-texts {
-  @apply text-[11px] px-2 rounded-[5px] bg-gray-200 m-[5px] w-fit dark:bg-gray-300;
+  @apply text-[11px] px-2 rounded-[5px] bg-gray-200 m-[5px] w-fit dark:bg-gray-400;
 }
 
 .component-border {
@@ -59,9 +59,16 @@
 }
 
 .selector {
-  @apply bg-gray-200 rounded-[5px] h-8 px-2;
+  @apply bg-gray-200 rounded-[5px] h-8 px-2 text-sm;
 }
 
 .button {
-  @apply bg-black text-white px-3 py-1 h-8 rounded hover:bg-stone-700 cursor-pointer;
+  @apply bg-black text-white px-3 py-1 h-8 rounded-[6px] hover:bg-stone-700 cursor-pointer text-sm;
+}
+
+.diagonal-line {
+  @apply absolute w-full h-px bg-(--red-primary) rotate-45;
+  top: 2px; /* Adjust as needed */
+  left: 2px;
+  transform-origin: left center; /* Important for rotation around the correct point */
 }

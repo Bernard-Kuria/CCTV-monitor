@@ -13,12 +13,13 @@ export default function Nav() {
   return (
     <nav className="inline-flex items-center justify-between w-full px-4 py-2 shadow-[0_4px_6px_-1px_rgba(51,51,51,_0.1)] fixed backdrop-blur h-18 top-0 z-[2] dark:shadow-[0_4px_6px_-1px_rgba(153,153,153,_0.1)]">
       <div className="flex items-center gap-2">
-        <img
-          src="image.jpg"
-          alt="camera-image"
-          className="h-8 w-8 object-cover rounded-full"
-        />
-        <span className="font-bold text-lg w-20 dark:text-gray-100">
+        <div className="py-2 px-1 bg-black rounded-[10px]">
+          <FontAwesomeIcon
+            className="h-8 w-8 object-cover rounded-full text-white"
+            icon={["far", "camera"]}
+          />
+        </div>
+        <span className="font-bold text-md w-20 dark:text-gray-100">
           CCTV Monitor
         </span>
       </div>
@@ -46,18 +47,26 @@ export default function Nav() {
 
       <div className="flex items-center gap-4">
         <div className="relative">
-          <input
-            type="text"
-            placeholder="Search cameras or clients..."
-            className="input"
-          />
-          <div className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-gray-400 rounded-full"></div>
+          <div className="input camera-search flex gap-1 items-center focus-within:border-2 focus-within:shadow-lg shadow-gray-500">
+            <FontAwesomeIcon
+              className="text-gray-400"
+              icon="magnifying-glass"
+            />
+            <input
+              type="text"
+              placeholder="Search cameras or clients..."
+              className="focus:outline-none"
+            />
+          </div>
         </div>
 
         <button className="button">+ Add Camera</button>
 
-        <div className="relative">
-          <div className="w-5 h-5 bg-gray-400 rounded-full"></div>
+        <div className="relative cursor-pointer">
+          <FontAwesomeIcon
+            className="w-5 h-5 text-black"
+            icon={["far", "bell"]}
+          />
           <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
             3
           </div>

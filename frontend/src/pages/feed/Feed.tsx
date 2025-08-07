@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Nav from "../../glob-components/Nav";
 import CameraView from "./components/CameraView";
 import CamSorter from "./components/CamSorter";
@@ -16,11 +17,25 @@ export default function Feed() {
         </div>
         <CamSorter />
         <ul className="flex gap-1">
-          <li className="shaded-texts">6 Cameras</li>
-          <li className="shaded-texts text-(--green-primary)">3 Online</li>
-          <li className="shaded-texts text-(--red-primary)">2 Offline</li>
-          <li className="shaded-texts text-(--orange-primary)">0 Error</li>
-          <li className="shaded-texts text-(--blue-primary)">1 Connecting</li>
+          <li className="shaded-texts text-black">
+            <FontAwesomeIcon className="" icon={["far", "camera"]} /> 6 Cameras
+          </li>
+          <li className="shaded-texts text-(--green-primary)">
+            <FontAwesomeIcon className="" icon="wifi" /> 3 Online
+          </li>
+          <li className="flex shaded-texts text-(--red-primary)">
+            <div className="relative">
+              <FontAwesomeIcon className="" icon="wifi" />
+              <div className="diagonal-line"></div>
+            </div>
+            2 Offline
+          </li>
+          <li className="shaded-texts text-(--orange-primary)">
+            <FontAwesomeIcon className="" icon="triangle-exclamation" /> 0 Error
+          </li>
+          <li className="shaded-texts text-(--blue-primary)">
+            <FontAwesomeIcon className="" icon="bolt" /> 1 Connecting
+          </li>
         </ul>
         <CameraView />
       </div>
