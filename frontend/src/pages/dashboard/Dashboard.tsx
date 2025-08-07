@@ -6,7 +6,7 @@ import StatusMonitor from "./components/StatusMonitor.tsx";
 
 export default function Dashboard() {
   return (
-    <div className="pt-18 bg-amber-50 dark:bg-neutral-900">
+    <div className="pt-18 dark:bg-neutral-900">
       <Nav />
       <div className="summary-area px-[10%] pt-10 grid gap-5">
         <OverviewSummary />
