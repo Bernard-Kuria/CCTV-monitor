@@ -12,6 +12,10 @@ import {
   faArrowTrendDown,
   faShield,
   faPeopleGroup,
+  faXmark,
+  faArrowDown,
+  faGear,
+  faLocationPin,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -19,6 +23,10 @@ import {
   faBell,
   faClock,
   faCircleCheck,
+  faBuilding,
+  faPenToSquare,
+  faEye,
+  faTrashCan,
 } from "@fortawesome/free-regular-svg-icons";
 
 library.add(
@@ -37,5 +45,13 @@ library.add(
   faArrowTrendDown,
   faShield,
   faCircleCheck,
-  faPeopleGroup
+  faPeopleGroup,
+  faXmark,
+  faArrowDown,
+  faGear,
+  faBuilding,
+  faLocationPin,
+  faPenToSquare,
+  faEye,
+  faTrashCan
 );

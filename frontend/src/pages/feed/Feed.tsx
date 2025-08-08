@@ -5,7 +5,7 @@ import CamSorter from "./components/CamSorter";
 
 export default function Feed() {
   return (
-    <div className="pt-1 bg-amber-50 dark:bg-neutral-900">
+    <div className="pt-18 dark:bg-neutral-900">
       <Nav />
       <div className="feed-area px-[10%] pt-10 grid gap-5">
         <div>

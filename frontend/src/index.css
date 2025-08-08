@@ -35,7 +35,7 @@
 }
 
 .mini-text-normal {
-  @apply text-[13px] text-gray-500 dark:text-gray-500;
+  @apply text-[12px] text-gray-500 dark:text-gray-500;
 }
 
 .mini-text-bold {
@@ -63,7 +63,11 @@
 }
 
 .button {
-  @apply bg-black text-white px-3 py-1 h-8 rounded-[6px] hover:bg-stone-700 cursor-pointer text-sm;
+  @apply bg-black text-white px-2 py-1 h-8 rounded-[6px] hover:bg-stone-700 cursor-pointer text-sm;
+}
+
+.bordered-text {
+  @apply border border-gray-300 dark:border-gray-500 px-2 rounded-[6px];
 }
 
 .diagonal-line {

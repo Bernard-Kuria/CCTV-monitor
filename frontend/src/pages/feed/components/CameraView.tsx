@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function CameraView() {
   return (
     <>
@@ -136,9 +138,13 @@ export default function CameraView() {
         </li>
       </ul>
       {/* <div className="fixed top-0 left-0 w-full h-[1000px] bg-[rgba(0,0,0,0.5)]">
-        <div className="selected-view w-[450px] h-[400px] left-[calc(50%-225px)] top-[calc(50%-200px)] z-[2] bg-white fixed rounded-[10px] p-5">
-          <div className="cam-location normal-text font-[600] mb-[5px]">
+        <div className="selected-view flex flex-col gap-[15px] w-[450px] h-[400px] left-[calc(50%-225px)] top-[calc(50%-200px)] bg-white fixed rounded-[10px] p-5">
+          <div className="cam-location relative normal-text font-[600] mb-[5px] w-full">
             Parking Lot West - Outdoor - Section B
+            <FontAwesomeIcon
+              className="w-5 h-5 absolute right-0 cursor-pointer"
+              icon={["fas", "xmark"]}
+            />
           </div>
           <div className="selected-cam-feed w-full h-[250px] component-border">
             <img src="feed" alt="" />
@@ -153,10 +159,23 @@ export default function CameraView() {
             <div>
               Ping: <strong>23ms</strong>
             </div>
-            <div className="flex gap-1 h-full">
-              <button className="button">Snapshot</button>
-              <button className="px-3 py-1 h-8 border border-gray-300 rounded-[6px] bg-white cursor-pointer hover:bg-gray-200 hover:ease-in">
-                Settings
+            <div className="flex gap-1 h-full items-center">
+              <button className="button flex items-center gap-2 py-2 px-3 bg-blue-600 text-white rounded">
+                <span className="relative inline-flex items-center">
+                  <FontAwesomeIcon
+                    icon={["fas", "arrow-down"]}
+                    className="text-[8px] text-white relative mb-1"
+                  />
+                  <span
+                    className="after:content-[''] after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:top-[calc(100%-5px)] after:w-3 after:h-1 after:border after:border-white after:border-t-0 after:rounded-b-[1px]"
+                    aria-hidden="true"
+                  ></span>
+                </span>
+                <strong className="text-[12px]">Snapshot</strong>
+              </button>
+              <button className="flex text-[12px] px-3 py-1 h-8 border border-gray-300 rounded-[6px] bg-white cursor-pointer hover:bg-gray-200 hover:ease-in items-center">
+                <FontAwesomeIcon className="w-5 h-5" icon={["fas", "gear"]} />
+                <strong className="text-[12px] ml-1">Settings</strong>
               </button>
             </div>
           </div>
