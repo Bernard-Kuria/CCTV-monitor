@@ -34,21 +34,21 @@ export default function Camera() {
         <div>Last ping: 8/8/2025, 2:49:34 AM</div>
       </div>
       <div className="absolute top-5 right-5 flex gap-2 text-sm">
-        <button className="bordered-text h-6 hover:bg-gray-400 cursor-pointer dark:text-white dark:hover:text-black">
+        <button className="bordered-text h-6 hover:bg-gray-200 cursor-pointer dark:text-white dark:hover:text-black">
           <FontAwesomeIcon
             className="h-full text-[12px] mr-1"
             icon={["far", "eye"]}
           />
           View
         </button>
-        <button className="bordered-text h-6 hover:bg-gray-400 cursor-pointer dark:text-white dark:hover:text-black">
+        <button className="bordered-text h-6 hover:bg-gray-200 cursor-pointer dark:text-white dark:hover:text-black">
           <FontAwesomeIcon
             className="h-full text-[12px] mr-1"
             icon={["far", "pen-to-square"]}
           />
           Edit
         </button>
-        <button className="bordered-text h-6 hover:bg-gray-400 cursor-pointer text-(--red-secondary)">
+        <button className="bordered-text h-6 hover:bg-gray-200 cursor-pointer text-(--red-secondary)">
           <FontAwesomeIcon
             className="h-full text-[12px] mr-1"
             icon={["far", "trash-can"]}
