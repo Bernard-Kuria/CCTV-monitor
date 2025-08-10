@@ -23,11 +23,11 @@
 }
 
 .section-title {
-  @apply text-2xl font-[600] dark:text-gray-200;
+  @apply text-[25px] font-[650] dark:text-gray-200;
 }
 
 .text-normal {
-  @apply text-sm text-gray-500 dark:text-gray-500;
+  @apply text-sm text-gray-500 dark:text-gray-200;
 }
 
 .text-bold {
@@ -35,7 +35,7 @@
 }
 
 .mini-text-normal {
-  @apply text-[12px] text-gray-500 dark:text-gray-500;
+  @apply text-[12px] text-gray-500 dark:text-gray-400;
 }
 
 .mini-text-bold {
@@ -43,11 +43,11 @@
 }
 
 .text-values {
-  @apply text-[22px] text-gray-900 font-[600] dark:text-gray-200;
+  @apply text-[22px] text-gray-900 font-[700] dark:text-gray-200;
 }
 
 .shaded-texts {
-  @apply text-[11px] px-2 rounded-[5px] bg-gray-200 m-[5px] w-fit dark:bg-gray-400;
+  @apply text-[11px] px-2 rounded-[5px] bg-gray-200 m-[5px] w-fit dark:bg-gray-400/20;
 }
 
 .component-border {
@@ -63,7 +63,7 @@
 }
 
 .button {
-  @apply bg-black text-white px-2 py-1 h-8 rounded-[6px] hover:bg-stone-700 cursor-pointer text-sm;
+  @apply bg-black text-white px-2 py-1 h-8 rounded-[6px] hover:bg-stone-700 cursor-pointer text-sm dark:bg-white dark:text-black dark:hover:bg-white/50 duration-500;
 }
 
 .bordered-text {
@@ -71,8 +71,13 @@
 }
 
 .diagonal-line {
-  @apply absolute w-full h-px bg-(--red-primary) rotate-45;
-  top: 2px; /* Adjust as needed */
-  left: 2px;
-  transform-origin: left center; /* Important for rotation around the correct point */
+  @apply absolute w-full h-px bg-(--red-primary) rotate-45 top-[2px] left-[2px] origin-left;
+}
+
+.card {
+  @apply h-fit min-h-20 p-5 w-60 rounded-2xl bg-white shadow-2xl hover:shadow-gray-400 hover:translate-y-[-4px] duration-400 dark:bg-black/30 dark:hover:shadow-black/80;
+}
+
+.progress-bar {
+  @apply h-2 w-full rounded-2xl bg-gray-300 relative overflow-hidden after:bg-black after:absolute after:h-full after:left-0 after:content-[''] dark:bg-gray-800 dark:after:bg-white;
 }

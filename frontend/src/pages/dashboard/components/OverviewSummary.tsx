@@ -4,14 +4,6 @@ import PieGraph from "../../../glob-components/charts/Pie";
 export default function OverviewSummary() {
   return (
     <>
-      <div className="welcome-text mb-5">
-        <h1 className="section-title">Welcome back, admin</h1>
-        <h3 className="text-normal">
-          Monitor and manage all camera systems across your client locations
-          from one centralized platform.
-        </h3>
-      </div>
-
       <div className="overview flex gap-5 h-[400px]">
         <div className="sys-overview border border-gray-300 dark:border-gray-500 rounded-[10px] w-[60%] p-5">
           <h2 className="mb-2 dark:text-gray-300">System Overview</h2>
@@ -62,25 +54,25 @@ export default function OverviewSummary() {
                   142
                 </div>
               </h3>
-              <div className="h-2 w-full rounded-2xl bg-gray-300 relative overflow-hidden after:bg-black after:absolute after:w-[70%] after:h-full after:left-0 after:content-['']"></div>
+              <div className="progress-bar after:w-[calc(142/155*100%)]"></div>
             </div>
             <div className="offline mb-3">
               <h3 className="text-normal w-[100%] relative">
                 Offline
                 <div className="text-bold absolute right-0 top-0 dark:text-gray-300">
-                  142
+                  8
                 </div>
               </h3>
-              <div className="h-2 w-full rounded-2xl bg-gray-300 relative overflow-hidden after:bg-black after:absolute after:w-[50%] after:h-full after:left-0 after:content-['']"></div>
+              <div className="progress-bar after:w-[calc(8/155*100%)]"></div>
             </div>
             <div className="maintenance mb-3">
               <h3 className="text-normal w-[100%] relative">
                 Maintenance
                 <div className="text-bold absolute right-0 top-0 dark:text-gray-300">
-                  142
+                  5
                 </div>
               </h3>
-              <div className="h-2 w-full rounded-2xl bg-gray-300 relative overflow-hidden after:bg-black after:absolute after:w-[20%] after:h-full after:left-0 after:content-['']"></div>
+              <div className="progress-bar after:w-[calc(5/155*100%)]"></div>
             </div>
           </div>
           <div className="flex justify-center h-[50%] mt-8">
