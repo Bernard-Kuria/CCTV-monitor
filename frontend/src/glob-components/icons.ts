@@ -16,6 +16,7 @@ import {
   faArrowDown,
   faGear,
   faLocationPin,
+  faDollarSign,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -27,6 +28,7 @@ import {
   faPenToSquare,
   faEye,
   faTrashCan,
+  faCalendarDays,
 } from "@fortawesome/free-regular-svg-icons";
 
 library.add(
@@ -53,5 +55,7 @@ library.add(
   faLocationPin,
   faPenToSquare,
   faEye,
-  faTrashCan
+  faTrashCan,
+  faCalendarDays,
+  faDollarSign
 );

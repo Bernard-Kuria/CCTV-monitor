@@ -27,7 +27,7 @@
 }
 
 .text-normal {
-  @apply text-sm text-gray-500 dark:text-gray-200;
+  @apply text-sm text-gray-700 dark:text-gray-200;
 }
 
 .text-bold {

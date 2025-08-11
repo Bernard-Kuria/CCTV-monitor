@@ -11,14 +11,15 @@ export default function GradientHeader({
   cards,
 }: GradientHeaderProps) {
   return (
-    // <header className="p-8 h-60 bg-linear-135 from-indigo-500/20 to-pink-500/40 rounded-2xl border-1 border-indigo-500/10 dark:from-indigo-800/80 dark:to-pink-800/60 dark:border-indigo-800/40 dark:border-1 leading-relaxed">
     <header
       className={`p-8 h-60 bg-linear-135 ${fromColor} ${toColor} rounded-2xl border-1 border-indigo-500/10 dark:from-indigo-800/80 dark:to-pink-800/60 dark:border-indigo-800/40 dark:border-1 leading-relaxed`}
     >
       <div className="">
         <div className="welcome-text mb-5 relative">
           <h1 className="section-title">{title}</h1>
-          <h3 className="text-[15px] dark:text-white">{subTitle}</h3>
+          <h3 className="text-normal text-[15px] dark:text-white">
+            {subTitle}
+          </h3>
           <div className="flex gap-2 text-[12px] absolute right-0 top-2 dark:text-white items-center">
             {sideButtons.map((button, index) => (
               <div key={index}>{button}</div>
