@@ -1,8 +1,11 @@
 import Nav from "../../glob-components/Nav";
 import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
 import { useContext, useEffect } from "react";
+import ClientSorter from "./components/ClientSorter";
+import Client from "./components/Client";
 
 export default function Clients() {
+  const arr = [1, 2, 3, 4];
   const context = useContext(GradientContext);
 
   if (!context) {
@@ -54,8 +57,15 @@ export default function Clients() {
   return (
     <div className="pt-18 dark:bg-neutral-900">
       <Nav />
-      <div className="feed-area px-[10%] pt-10 grid gap-5">
+      <div className="clients-area px-[10%] pt-10 grid gap-5">
         <GradientHeader />
+        <ClientSorter />
+
+        <ul className="flex flex-wrap gap-2">
+          {arr.map(() => (
+            <Client />
+          ))}
+        </ul>
       </div>
     </div>
   );

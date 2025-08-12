@@ -12,7 +12,7 @@ export default function GradientHeader({
 }: GradientHeaderProps) {
   return (
     <header
-      className={`p-8 h-60 bg-linear-135 ${fromColor} ${toColor} rounded-2xl border-1 border-indigo-500/10 dark:from-indigo-800/80 dark:to-pink-800/60 dark:border-indigo-800/40 dark:border-1 leading-relaxed`}
+      className={`p-8 h-60 bg-linear-135 ${fromColor} ${toColor} rounded-2xl border-1 border-indigo-500/10 dark:${fromColor}/80 dark:${toColor}/60 dark:border-indigo-800/40 dark:border-1 leading-relaxed`}
     >
       <div className="">
         <div className="welcome-text mb-5 relative">

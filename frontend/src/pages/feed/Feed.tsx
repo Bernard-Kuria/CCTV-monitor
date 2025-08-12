@@ -68,13 +68,6 @@ export default function Feed() {
       <Nav />
       <div className="feed-area px-[10%] pt-10 grid gap-5">
         <GradientHeader />
-        <div>
-          <h1 className="section-title">Live Camera Feeds</h1>
-          <h3 className="text-normal">
-            Monitor live camera feeds from all your client locations in
-            real-time with health status indicators.
-          </h3>
-        </div>
         <CamSorter />
         <ul className="flex gap-1">
           <li className="shaded-texts text-black">

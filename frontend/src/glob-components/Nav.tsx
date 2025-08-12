@@ -47,7 +47,7 @@ export default function Nav() {
 
       <div className="flex items-center gap-4">
         <div className="relative">
-          <div className="input camera-search flex gap-1 items-center focus-within:border-2 focus-within:shadow-lg shadow-gray-500">
+          <div className="input camera-search flex gap-1 items-center focus-within:border-2 focus-within:shadow-md shadow-gray-500">
             <FontAwesomeIcon
               className="text-gray-400"
               icon="magnifying-glass"

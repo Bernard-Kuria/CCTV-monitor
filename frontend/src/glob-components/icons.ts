@@ -17,6 +17,8 @@ import {
   faGear,
   faLocationPin,
   faDollarSign,
+  faFilter,
+  faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -29,6 +31,7 @@ import {
   faEye,
   faTrashCan,
   faCalendarDays,
+  faEnvelope,
 } from "@fortawesome/free-regular-svg-icons";
 
 library.add(
@@ -57,5 +60,8 @@ library.add(
   faEye,
   faTrashCan,
   faCalendarDays,
-  faDollarSign
+  faDollarSign,
+  faFilter,
+  faEnvelope,
+  faPhone
 );
