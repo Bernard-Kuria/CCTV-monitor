@@ -2,6 +2,16 @@ import Nav from "../../glob-components/Nav";
 import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
 import { useContext, useEffect } from "react";
 
+// Sections
+import TaskManagement from "./sections/TaskManagement";
+import CalenderView from "./sections/CalenderView";
+import Technicians from "./sections/Technicians";
+import Analytics from "./sections/Analytics";
+
+// Components
+import TaskSelector from "./components/TaskSelector";
+import TaskSorter from "./components/TaskSorter";
+
 export default function Maintenance() {
   const context = useContext(GradientContext);
 
@@ -51,11 +61,18 @@ export default function Maintenance() {
       ],
     });
   }, []);
+
   return (
     <div className="pt-18 dark:bg-neutral-900">
       <Nav />
-      <div className="feed-area px-[10%] pt-10 grid gap-5">
+      <div className="feed-area px-[10%] pt-10 grid gap-5 pb-10">
         <GradientHeader />
+        <TaskSelector />
+        <TaskSorter />
+        <TaskManagement />
+        <CalenderView />
+        <Technicians />
+        <Analytics />
       </div>
     </div>
   );

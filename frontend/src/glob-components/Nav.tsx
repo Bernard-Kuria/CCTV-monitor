@@ -82,7 +82,7 @@ export default function Nav() {
           />
         </button>
 
-        <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+        <div className="profile"></div>
       </div>
     </nav>
   );

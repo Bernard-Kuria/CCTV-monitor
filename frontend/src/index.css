@@ -63,7 +63,11 @@
 }
 
 .button {
-  @apply bg-black text-white px-2 py-1 h-8 rounded-[6px] hover:bg-stone-700 cursor-pointer text-sm dark:bg-white dark:text-black dark:hover:bg-white/50 duration-500;
+  @apply flex justify-center items-center bg-black text-white px-2 py-1 h-8 rounded-[6px] hover:bg-stone-700 cursor-pointer text-sm dark:bg-white dark:text-black dark:hover:bg-white/50 duration-500;
+}
+
+.bright-button {
+  @apply flex items-center justify-center bg-white text-black border border-gray-300 px-2 py-1 h-6 rounded-[6px] hover:bg-stone-200 cursor-pointer text-sm dark:bg-black dark:text-white dark:border-white dark:hover:bg-white/50 duration-500;
 }
 
 .bordered-text {
@@ -74,10 +78,30 @@
   @apply absolute w-full h-px bg-(--red-primary) rotate-45 top-[2px] left-[2px] origin-left;
 }
 
+.nav-arrows {
+  @apply cursor-pointer h-5 w-2 hover:bg-gray-200 dark:border-gray-500 px-2 rounded-[6px];
+}
+
 .card {
   @apply h-fit min-h-20 p-5 w-60 rounded-2xl bg-white shadow-2xl hover:shadow-gray-400 hover:translate-y-[-4px] duration-400 dark:bg-black/30 dark:hover:shadow-black/80;
 }
 
 .progress-bar {
   @apply h-2 w-full rounded-2xl bg-gray-300 relative overflow-hidden after:bg-black after:absolute after:h-full after:left-0 after:content-[''] dark:bg-gray-800 dark:after:bg-white;
+}
+
+.profile {
+  @apply w-9 h-9 rounded-full border border-gray-300;
+}
+
+.date {
+  @apply rounded hover:bg-gray-300 hover:text-gray-500 flex justify-center p-1 border cursor-pointer disabled:text-gray-400 disabled:border-0 disabled:hover:bg-white dark:border-gray-500 dark:hover:text-black dark:hover:bg-gray-500;
+}
+
+.today {
+  @apply border-orange-300 border-2;
+}
+
+.selected {
+  @apply bg-black text-white dark:bg-white dark:text-black;
 }

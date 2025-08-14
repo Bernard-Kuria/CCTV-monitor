@@ -19,6 +19,8 @@ import {
   faDollarSign,
   faFilter,
   faPhone,
+  faAngleRight,
+  faAngleLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -32,6 +34,8 @@ import {
   faTrashCan,
   faCalendarDays,
   faEnvelope,
+  faCirclePlay,
+  faFile,
 } from "@fortawesome/free-regular-svg-icons";
 
 library.add(
@@ -63,5 +67,9 @@ library.add(
   faDollarSign,
   faFilter,
   faEnvelope,
-  faPhone
+  faPhone,
+  faCirclePlay,
+  faFile,
+  faAngleRight,
+  faAngleLeft
 );
