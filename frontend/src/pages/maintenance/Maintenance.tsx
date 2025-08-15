@@ -1,6 +1,6 @@
 import Nav from "../../glob-components/Nav";
 import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useReducer } from "react";
 
 // Sections
 import TaskManagement from "./sections/TaskManagement";
@@ -9,10 +9,43 @@ import Technicians from "./sections/Technicians";
 import Analytics from "./sections/Analytics";
 
 // Components
-import TaskSelector from "./components/TaskSelector";
+import SectionNav from "./components/SectionNav";
 import TaskSorter from "./components/TaskSorter";
 
+const SECTIONS = {
+  TASKMANAGEMENT: "taskmanagement",
+  CALENDERVIEW: "calenderview",
+  TECHNICIANS: "technicians",
+  ANALYTICS: "analytics",
+};
+
+type ActionType = { type: string; payload: string };
+
+function reducer(state: string, action: ActionType) {
+  switch (action.type) {
+    case SECTIONS.TASKMANAGEMENT:
+      return action.payload;
+    case SECTIONS.CALENDERVIEW:
+      return action.payload;
+    case SECTIONS.TECHNICIANS:
+      return action.payload;
+    case SECTIONS.ANALYTICS:
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
 export default function Maintenance() {
+  const [activeSection, setActiveSection] = useReducer(
+    reducer,
+    SECTIONS.TASKMANAGEMENT
+  );
+
+  function handleSectionChange(section: string) {
+    setActiveSection({ type: section, payload: section });
+  }
+
   const context = useContext(GradientContext);
 
   if (!context) {
@@ -67,12 +100,15 @@ export default function Maintenance() {
       <Nav />
       <div className="feed-area px-[10%] pt-10 grid gap-5 pb-10">
         <GradientHeader />
-        <TaskSelector />
+        <SectionNav
+          activeSection={activeSection}
+          handleSectionChange={handleSectionChange}
+        />
         <TaskSorter />
-        <TaskManagement />
-        <CalenderView />
-        <Technicians />
-        <Analytics />
+        {activeSection === SECTIONS.TASKMANAGEMENT && <TaskManagement />}
+        {activeSection === SECTIONS.CALENDERVIEW && <CalenderView />}
+        {activeSection === SECTIONS.TECHNICIANS && <Technicians />}
+        {activeSection === SECTIONS.ANALYTICS && <Analytics />}
       </div>
     </div>
   );
