@@ -1,7 +1,19 @@
-import LineGraph from "../../../glob-components/charts/Line";
+import { useContext, useEffect } from "react";
 import PieGraph from "../../../glob-components/charts/Pie";
+import { LineContext } from "../../../glob-components/charts/Line/LineUserContext";
 
 export default function OverviewSummary() {
+  const context = useContext(LineContext);
+
+  if (!context) {
+    throw new Error("LineGraph must be used within a LineGraphProvider");
+  }
+
+  const { LineGraph, setLineProps } = context;
+  useEffect(() => {
+    setLineProps({ data: [98.5, 98, 99.2, 99, 99.8, 99.5] });
+  }, [setLineProps]);
+
   return (
     <>
       <div className="overview flex gap-5 h-[400px]">

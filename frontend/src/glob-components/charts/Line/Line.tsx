@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart,
@@ -7,17 +7,11 @@ import {
   type ChartData,
   type ChartOptions,
 } from "chart.js";
+import { type LineProps } from "./LineUserContext";
 
 Chart.register(...registerables, Filler);
 
-import { type ChartType, type DefaultDataPoint } from "chart.js";
-
-type ChartJSOrUndefined<TType extends ChartType = ChartType> =
-  | Chart<TType, DefaultDataPoint<TType>, unknown>
-  | undefined;
-
-export default function LineGraph() {
-  const chartRef = useRef<ChartJSOrUndefined<"line">>(null);
+export default function LineGraph({ data }: LineProps) {
   const labels = ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"];
 
   const [chartData, setChartData] = useState<ChartData<"line">>({
@@ -31,8 +25,8 @@ export default function LineGraph() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0, "rgba(0, 255, 179, 1)");
+    const gradient = ctx.createLinearGradient(0, -100, 0, 400);
+    gradient.addColorStop(0, "rgba(0, 255, 179, 2)");
     gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
 
     setChartData({
@@ -40,7 +34,7 @@ export default function LineGraph() {
       datasets: [
         {
           label: "Uptime",
-          data: [98.5, 98, 99.2, 99, 99.8, 99.5],
+          data: data,
           fill: true,
           backgroundColor: gradient,
           borderColor: "rgba(0, 255, 179, 1)",
@@ -114,9 +108,5 @@ export default function LineGraph() {
     },
   };
 
-  return (
-    <>
-      {chartData && <Line ref={chartRef} data={chartData} options={options} />}
-    </>
-  );
+  return <>{chartData && <Line data={chartData} options={options} />}</>;
 }
