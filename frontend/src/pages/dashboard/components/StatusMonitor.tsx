@@ -127,7 +127,7 @@ export default function StatusMonitor() {
                 <div className="flex bg-(--red-light) text-(--red-primary) w-fit px-2 rounded-[5px]">
                   <div className="relative w-[20px]">
                     <FontAwesomeIcon className="" icon={["fas", "wifi"]} />
-                    <div className="diagonal-line"></div>
+                    <div className="absolute w-full h-px bg-(--red-primary) rotate-45 top-[2px] left-[2px] origin-left"></div>
                   </div>{" "}
                   Offline 2 alerts
                 </div>

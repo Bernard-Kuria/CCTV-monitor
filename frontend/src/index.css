@@ -101,5 +101,3 @@
 .selected {
   @apply bg-black text-white dark:bg-white dark:text-black;
 }
-
-/* relative after:absolute after:w-full after:h-px after:bg-(--red-primary) after:rotate-45 after:top-[2px] after:left-[2px] after:origin-left after:z-10after:content-[''] */
