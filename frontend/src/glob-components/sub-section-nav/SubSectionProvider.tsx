@@ -10,7 +10,7 @@ export default function SubSectionProvider({ children }: Props) {
     sections: [""],
   });
 
-  function reducer(state: string, action: ActionType) {
+  function reducer(_: string, action: ActionType) {
     return action.payload;
   }
 
