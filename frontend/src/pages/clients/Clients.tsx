@@ -1,18 +1,21 @@
 import Nav from "../../glob-components/Nav";
 import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
 import { useContext, useEffect } from "react";
-import ClientSorter from "./components/ClientSorter";
 import Client from "./components/Client";
+import { SorterContext } from "../../glob-components/sort/SorterContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Clients() {
   const arr = [1, 2, 3, 4];
-  const context = useContext(GradientContext);
+  const Headercontext = useContext(GradientContext);
+  const Sortercontext = useContext(SorterContext);
 
-  if (!context) {
-    throw new Error("Dashboard must be used within a GradientHeaderProvider");
+  if (!Headercontext || !Sortercontext) {
+    throw new Error("Context must be used within a Provider");
   }
 
-  const { GradientHeader, setHeaderProps } = context;
+  const { GradientHeader, setHeaderProps } = Headercontext;
+  const { messageProps, setOptions, Sorter, setEl } = Sortercontext;
 
   useEffect(() => {
     setHeaderProps({
@@ -54,12 +57,31 @@ export default function Clients() {
       ],
     });
   }, []);
+
+  useEffect(() => {
+    messageProps.setMessage("Search camera...");
+    setOptions({
+      selector1: ["All Status", "Active", "Inactive", "Pending"],
+    });
+    setEl({
+      elements: [
+        <div className="flex items-center shaded-texts px-2 gap-1">
+          <FontAwesomeIcon
+            icon={["fas", "filter"]}
+            className="text-[11px] text-black relative mb-1"
+          />
+          4 Results
+        </div>,
+      ],
+    });
+  }, []);
+
   return (
     <div className="pt-18 dark:bg-neutral-900">
       <Nav />
       <div className="clients-area px-[10%] pt-10 grid gap-5">
         <GradientHeader />
-        <ClientSorter />
+        <Sorter />
 
         <ul className="flex flex-wrap gap-2">
           {arr.map(() => (

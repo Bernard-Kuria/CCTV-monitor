@@ -1,18 +1,49 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Nav from "../../glob-components/Nav";
 import CameraView from "./components/CameraView";
-import CamSorter from "./components/CamSorter";
 import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
 import { useContext, useEffect } from "react";
+import { SorterContext } from "../../glob-components/sort/SorterContext";
+import type { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
+
+const tags = [
+  { color: "text-black", name: "Cameras", icon: ["far", "camera"], value: 6 },
+  {
+    color: "text-(--green-primary)",
+    name: "Online",
+    icon: ["fas", "wifi"],
+    value: 3,
+  },
+  {
+    color: "text-(--red-primary)",
+    name: "Offline",
+    icon: ["fas", "wifi"],
+    value: 2,
+  },
+  {
+    color: "text-(--orange-primary)",
+    name: "Error",
+    icon: ["fas", "triangle-exclamation"],
+    value: 0,
+  },
+  {
+    color: "text-(--blue-primary)",
+    name: "Connecting",
+    icon: ["fas", "bolt"],
+    value: 1,
+  },
+];
 
 export default function Feed() {
-  const context = useContext(GradientContext);
+  const Headercontext = useContext(GradientContext);
+  const Sortercontext = useContext(SorterContext);
 
-  if (!context) {
-    throw new Error("Dashboard must be used within a GradientHeaderProvider");
+  if (!Headercontext || !Sortercontext) {
+    throw new Error("Context must be used within a Provider");
   }
 
-  const { GradientHeader, setHeaderProps } = context;
+  const { GradientHeader, setHeaderProps } = Headercontext;
+  const { messageProps, setOptions, Sorter, setEl } = Sortercontext;
 
   useEffect(() => {
     setHeaderProps({
@@ -63,32 +94,50 @@ export default function Feed() {
     });
   }, []);
 
+  useEffect(() => {
+    messageProps.setMessage("");
+    setOptions({
+      selector1: ["All Status", "Online", "Offline", "Error", "Connecting"],
+      selector2: [
+        "All Clients",
+        "TechCorp HQ",
+        "RetailPlus Store",
+        "OfficeMax Central",
+        "SecureBank Downtown",
+      ],
+    });
+    setEl({
+      elements: [
+        <div className="flex gap-[10px] items-center">
+          <button className="button">Auto-refresh</button>
+          <div className="mini-text-normal">| Grid:</div>
+          <button className="button">2x2</button>
+          <button className="button">3x3</button>
+          <button className="button">4x4</button>
+        </div>,
+      ],
+    });
+  }, []);
+
   return (
     <div className="pt-18 dark:bg-neutral-900">
       <Nav />
       <div className="feed-area px-[10%] pt-10 grid gap-5">
         <GradientHeader />
-        <CamSorter />
+        <Sorter />
         <ul className="flex gap-1">
-          <li className="shaded-texts text-black">
-            <FontAwesomeIcon className="" icon={["far", "camera"]} /> 6 Cameras
-          </li>
-          <li className="shaded-texts text-(--green-primary)">
-            <FontAwesomeIcon className="" icon="wifi" /> 3 Online
-          </li>
-          <li className="flex shaded-texts text-(--red-primary)">
-            <div className="relative">
-              <FontAwesomeIcon className="" icon="wifi" />
-              <div className="diagonal-line"></div>
-            </div>
-            2 Offline
-          </li>
-          <li className="shaded-texts text-(--orange-primary)">
-            <FontAwesomeIcon className="" icon="triangle-exclamation" /> 0 Error
-          </li>
-          <li className="shaded-texts text-(--blue-primary)">
-            <FontAwesomeIcon className="" icon="bolt" /> 1 Connecting
-          </li>
+          {tags.map((tag) => (
+            <li className={`shaded-texts ${tag.color} relative`}>
+              <FontAwesomeIcon
+                className=""
+                icon={[tag.icon[0] as IconPrefix, tag.icon[1] as IconName]}
+              />{" "}
+              {tag.value} {tag.name}
+              {tag.name === "Offline" && (
+                <div className="absolute w-4 h-px bg-(--red-primary) rotate-45 top-[2px] left-[10px] origin-left"></div>
+              )}
+            </li>
+          ))}
         </ul>
         <CameraView />
       </div>

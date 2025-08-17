@@ -7,13 +7,11 @@ import {
   type ChartData,
   type ChartOptions,
 } from "chart.js";
-import { type LineProps } from "./LineUserContext";
+import { type LineProps } from "./ChartContext";
 
 Chart.register(...registerables, Filler);
 
-export default function LineGraph({ data }: LineProps) {
-  const labels = ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"];
-
+export default function LineGraph({ data, labels }: LineProps) {
   const [chartData, setChartData] = useState<ChartData<"line">>({
     labels: [],
     datasets: [],
@@ -30,7 +28,7 @@ export default function LineGraph({ data }: LineProps) {
     gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
 
     setChartData({
-      labels,
+      labels: labels,
       datasets: [
         {
           label: "Uptime",

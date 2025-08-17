@@ -1,58 +1,35 @@
+// modules
+import { useContext, useEffect } from "react";
+
 import Nav from "../../glob-components/Nav";
 import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
-import { useContext, useEffect, useReducer } from "react";
+import { SubSectionContext } from "../../glob-components/sub-section-nav/SubSectionContext";
+import { SorterContext } from "../../glob-components/sort/SorterContext";
 
 // Sections
 import TaskManagement from "./sections/TaskManagement";
 import CalenderView from "./sections/CalenderView";
 import Technicians from "./sections/Technicians";
 import Analytics from "./sections/Analytics";
-
-// Components
-import SectionNav from "./components/SectionNav";
-import TaskSorter from "./components/TaskSorter";
-
-const SECTIONS = {
-  TASKMANAGEMENT: "taskmanagement",
-  CALENDERVIEW: "calenderview",
-  TECHNICIANS: "technicians",
-  ANALYTICS: "analytics",
-};
-
-type ActionType = { type: string; payload: string };
-
-function reducer(state: string, action: ActionType) {
-  switch (action.type) {
-    case SECTIONS.TASKMANAGEMENT:
-      return action.payload;
-    case SECTIONS.CALENDERVIEW:
-      return action.payload;
-    case SECTIONS.TECHNICIANS:
-      return action.payload;
-    case SECTIONS.ANALYTICS:
-      return action.payload;
-    default:
-      return state;
-  }
-}
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//   "Task Management",
+//   "Calender View",
+//   "Technicians",
+//   "Analytics",
+// ];
 
 export default function Maintenance() {
-  const [activeSection, setActiveSection] = useReducer(
-    reducer,
-    SECTIONS.TASKMANAGEMENT
-  );
+  const Headercontext = useContext(GradientContext);
+  const Sectioncontext = useContext(SubSectionContext);
+  const Sortercontext = useContext(SorterContext);
 
-  function handleSectionChange(section: string) {
-    setActiveSection({ type: section, payload: section });
+  if (!Headercontext || !Sectioncontext || !Sortercontext) {
+    throw new Error("Context must be used within a Provider");
   }
 
-  const context = useContext(GradientContext);
-
-  if (!context) {
-    throw new Error("Dashboard must be used within a GradientHeaderProvider");
-  }
-
-  const { GradientHeader, setHeaderProps } = context;
+  const { GradientHeader, setHeaderProps } = Headercontext;
+  const { setSectionProps, activeSection, SectionNav } = Sectioncontext;
+  const { messageProps, setOptions, Sorter, setEl } = Sortercontext;
 
   useEffect(() => {
     setHeaderProps({
@@ -95,20 +72,52 @@ export default function Maintenance() {
     });
   }, []);
 
+  useEffect(() => {
+    setSectionProps({
+      sections: [
+        "Task Management",
+        "Calender View",
+        "Technicians",
+        "Analytics",
+      ],
+    });
+  }, []);
+
+  useEffect(() => {
+    messageProps.setMessage("Search camera...");
+    setOptions({
+      selector1: [
+        "All Status",
+        "Scheduled",
+        "In progress",
+        "Completed",
+        "Overdue",
+      ],
+    });
+    setEl({
+      elements: [
+        <div className="flex items-center shaded-texts px-2 gap-1">
+          <FontAwesomeIcon
+            icon={["fas", "filter"]}
+            className="text-[11px] text-black relative mb-1"
+          />
+          5 Results
+        </div>,
+      ],
+    });
+  }, []);
+
   return (
     <div className="pt-18 dark:bg-neutral-900">
       <Nav />
       <div className="feed-area px-[10%] pt-10 grid gap-5 pb-10">
         <GradientHeader />
-        <SectionNav
-          activeSection={activeSection}
-          handleSectionChange={handleSectionChange}
-        />
-        <TaskSorter />
-        {activeSection === SECTIONS.TASKMANAGEMENT && <TaskManagement />}
-        {activeSection === SECTIONS.CALENDERVIEW && <CalenderView />}
-        {activeSection === SECTIONS.TECHNICIANS && <Technicians />}
-        {activeSection === SECTIONS.ANALYTICS && <Analytics />}
+        <SectionNav />
+        <Sorter />
+        {activeSection === "Task Management" && <TaskManagement />}
+        {activeSection === "Calender View" && <CalenderView />}
+        {activeSection === "Technicians" && <Technicians />}
+        {activeSection === "Analytics" && <Analytics />}
       </div>
     </div>
   );

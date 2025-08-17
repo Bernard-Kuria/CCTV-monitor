@@ -1,16 +1,26 @@
+// modules
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Nav from "../../glob-components/Nav";
-import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
 import { useContext, useEffect } from "react";
 
-export default function Reports() {
-  const context = useContext(GradientContext);
+// components
+import Nav from "../../glob-components/Nav";
+import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
+import { SubSectionContext } from "../../glob-components/sub-section-nav/SubSectionContext";
+import DashSection from "./sections/DashSection";
+import { SorterContext } from "../../glob-components/sort/SorterContext";
 
-  if (!context) {
-    throw new Error("Dashboard must be used within a GradientHeaderProvider");
+export default function Reports() {
+  const Headercontext = useContext(GradientContext);
+  const Sectioncontext = useContext(SubSectionContext);
+  const Sortercontext = useContext(SorterContext);
+
+  if (!Headercontext || !Sectioncontext || !Sortercontext) {
+    throw new Error("Context must be used within a Provider");
   }
 
-  const { GradientHeader, setHeaderProps } = context;
+  const { GradientHeader, setHeaderProps } = Headercontext;
+  const { setSectionProps, activeSection, SectionNav } = Sectioncontext;
+  const { messageProps, setOptions, Sorter, setEl } = Sortercontext;
 
   useEffect(() => {
     setHeaderProps({
@@ -73,11 +83,54 @@ export default function Reports() {
       ],
     });
   }, []);
+
+  useEffect(() => {
+    setSectionProps({
+      sections: ["Dashboard", "Performance", "Current Analytics", "Financial"],
+    });
+  }, []);
+
+  useEffect(() => {
+    messageProps.setMessage("");
+    setOptions({
+      selector1: [
+        "Last 7 Days",
+        "Last 30 Days",
+        "Last 3 months",
+        "Last 6 months",
+        "Last Year",
+        "Custom Range",
+      ],
+      selector2: [
+        "All Clients",
+        "TechCorp HQ",
+        "RetailPlus Store",
+        "OfficeMax Central",
+        "SecureBank Downtown",
+      ],
+      selector3: ["Overview", "Performance", "Finance", "Incidents"],
+    });
+    setEl({
+      elements: [
+        <div className="flex items-center shaded-texts px-2 gap-1">
+          <FontAwesomeIcon
+            icon={["fas", "filter"]}
+            className="text-[11px] text-black relative mb-1"
+          />
+          4 Results
+        </div>,
+      ],
+    });
+  }, []);
+
   return (
     <div className="pt-18 dark:bg-neutral-900">
       <Nav />
       <div className="feed-area px-[10%] pt-10 grid gap-5">
         <GradientHeader />
+        <SectionNav />
+        <Sorter />
+        {activeSection === "Dashboard" && <DashSection />}
       </div>
     </div>
   );

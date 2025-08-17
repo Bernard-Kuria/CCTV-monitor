@@ -1,18 +1,34 @@
 import { useContext, useEffect } from "react";
-import PieGraph from "../../../glob-components/charts/Pie";
-import { LineContext } from "../../../glob-components/charts/Line/LineUserContext";
+import {
+  LineContext,
+  PieContext,
+} from "../../../glob-components/charts/ChartContext";
 
 export default function OverviewSummary() {
-  const context = useContext(LineContext);
+  const lContext = useContext(LineContext);
+  const pContext = useContext(PieContext);
 
-  if (!context) {
+  if (!lContext) {
     throw new Error("LineGraph must be used within a LineGraphProvider");
   }
 
-  const { LineGraph, setLineProps } = context;
+  if (!pContext) {
+    throw new Error("PieDoughnut must be used within a PieDoughnutProvider");
+  }
+
+  const { LineGraph, setLineProps } = lContext;
+  const { PieDoughnut, setPieProps } = pContext;
+
   useEffect(() => {
-    setLineProps({ data: [98.5, 98, 99.2, 99, 99.8, 99.5] });
+    setLineProps({
+      labels: ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+      data: [98.5, 98, 99.2, 99, 99.8, 99.5],
+    });
   }, [setLineProps]);
+
+  useEffect(() => {
+    setPieProps({ pieData: [80, 15, 5] });
+  }, [setPieProps]);
 
   return (
     <>
@@ -88,7 +104,7 @@ export default function OverviewSummary() {
             </div>
           </div>
           <div className="flex justify-center h-[50%] mt-8">
-            <PieGraph />
+            <PieDoughnut />
           </div>
         </div>
       </div>

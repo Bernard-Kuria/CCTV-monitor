@@ -7,14 +7,16 @@ import {
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
+import { type PieProps } from "./chartContext";
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function PieGraph() {
+export default function Pie({ pieData }: PieProps) {
   const data = {
     labels: ["Online", "Offline", "Maintenance"],
     datasets: [
       {
-        data: [80, 15, 5],
+        data: pieData,
         backgroundColor: [
           "rgba(0, 255, 179, 0.9)",
           "rgba(54, 162, 235, 0.9)",
