@@ -108,17 +108,15 @@ export default function Maintenance() {
   }, []);
 
   return (
-    <div className="pt-18 dark:bg-neutral-900">
+    <div className="page-style">
       <Nav />
-      <div className="feed-area px-[10%] pt-10 grid gap-5 pb-10">
-        <GradientHeader />
-        <SectionNav />
-        <Sorter />
-        {activeSection === "Task Management" && <TaskManagement />}
-        {activeSection === "Calender View" && <CalenderView />}
-        {activeSection === "Technicians" && <Technicians />}
-        {activeSection === "Analytics" && <Analytics />}
-      </div>
+      <GradientHeader />
+      <SectionNav />
+      <Sorter />
+      {activeSection === "Task Management" && <TaskManagement />}
+      {activeSection === "Calender View" && <CalenderView />}
+      {activeSection === "Technicians" && <Technicians />}
+      {activeSection === "Analytics" && <Analytics />}
     </div>
   );
 }

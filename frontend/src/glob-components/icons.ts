@@ -22,6 +22,7 @@ import {
   faAngleRight,
   faAngleLeft,
   faChartPie,
+  faChartColumn,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -73,5 +74,6 @@ library.add(
   faFile,
   faAngleRight,
   faChartPie,
-  faAngleLeft
+  faAngleLeft,
+  faChartColumn
 );

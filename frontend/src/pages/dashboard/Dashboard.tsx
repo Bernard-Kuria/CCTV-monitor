@@ -66,14 +66,12 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="pt-18 dark:bg-stone-950">
+    <div className="page-style">
       <Nav />
-      <div className="summary-area px-[10%] pt-10 grid gap-5">
-        <GradientHeader />
-        <OverviewSummary />
-        <HealthPerformance />
-        <StatusMonitor />
-      </div>
+      <GradientHeader />
+      <OverviewSummary />
+      <HealthPerformance />
+      <StatusMonitor />
     </div>
   );
 }

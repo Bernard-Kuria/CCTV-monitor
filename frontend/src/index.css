@@ -22,6 +22,10 @@
   --orange-light: rgb(255, 99, 71, 0.2);
 }
 
+.page-style {
+  @apply min-h-[100vh] pt-28 pb-20 px-[10%] grid gap-5 dark:bg-neutral-900;
+}
+
 .section-title {
   @apply text-[25px] font-[650] dark:text-gray-200;
 }

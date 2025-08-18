@@ -11,7 +11,7 @@ export default function Nav() {
   const { theme, setTheme } = context;
 
   return (
-    <nav className="inline-flex items-center justify-between w-full px-4 py-2 shadow-[0_4px_6px_-1px_rgba(51,51,51,_0.1)] fixed backdrop-blur h-18 top-0 z-[2] dark:shadow-[0_4px_6px_-1px_rgba(153,153,153,_0.1)]">
+    <nav className="inline-flex items-center justify-between w-full px-4 py-2 shadow-[0_4px_6px_-1px_rgba(51,51,51,_0.1)] fixed backdrop-blur h-18 left-0 top-0 z-[2] dark:shadow-[0_4px_6px_-1px_rgba(153,153,153,_0.1)]">
       <div className="flex items-center gap-2">
         <div className="py-2 px-1 bg-black rounded-[10px]">
           <FontAwesomeIcon

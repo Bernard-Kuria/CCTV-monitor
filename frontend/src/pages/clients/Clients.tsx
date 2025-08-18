@@ -77,18 +77,16 @@ export default function Clients() {
   }, []);
 
   return (
-    <div className="pt-18 dark:bg-neutral-900">
+    <div className="page-style">
       <Nav />
-      <div className="clients-area px-[10%] pt-10 grid gap-5">
-        <GradientHeader />
-        <Sorter />
+      <GradientHeader />
+      <Sorter />
 
-        <ul className="flex flex-wrap gap-2">
-          {arr.map(() => (
-            <Client />
-          ))}
-        </ul>
-      </div>
+      <ul className="flex flex-wrap gap-2">
+        {arr.map(() => (
+          <Client />
+        ))}
+      </ul>
     </div>
   );
 }

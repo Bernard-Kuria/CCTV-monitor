@@ -6,8 +6,13 @@ import { useContext, useEffect } from "react";
 import Nav from "../../glob-components/Nav";
 import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
 import { SubSectionContext } from "../../glob-components/sub-section-nav/SubSectionContext";
-import DashSection from "./sections/DashSection";
 import { SorterContext } from "../../glob-components/sort/SorterContext";
+
+// sections
+import DashSection from "./sections/DashSection";
+import Performance from "./sections/Performance";
+import Analytics from "./sections/Analytics";
+import Financial from "./sections/Financial";
 
 export default function Reports() {
   const Headercontext = useContext(GradientContext);
@@ -124,14 +129,15 @@ export default function Reports() {
   }, []);
 
   return (
-    <div className="pt-18 dark:bg-neutral-900">
+    <div className="page-style">
       <Nav />
-      <div className="feed-area px-[10%] pt-10 grid gap-5">
-        <GradientHeader />
-        <SectionNav />
-        <Sorter />
-        {activeSection === "Dashboard" && <DashSection />}
-      </div>
+      <GradientHeader />
+      <SectionNav />
+      <Sorter />
+      {activeSection === "Dashboard" && <DashSection />}
+      {activeSection === "Performance" && <Performance />}
+      {activeSection === "Current Analytics" && <Analytics />}
+      {activeSection === "Financial" && <Financial />}
     </div>
   );
 }

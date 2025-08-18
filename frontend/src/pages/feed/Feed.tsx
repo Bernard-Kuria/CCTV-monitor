@@ -53,11 +53,11 @@ export default function Feed() {
       subTitle:
         "Real-time surveillance feeds with health status indicators and instant alerts across all client locations.",
       sideButtons: [
-        <div className="px-2 py-[1px] bg-white dark:bg-black/40 dark:text-white rounded-[5px]">
+        <div className="px-2 py-[1px] bg-white dark:bg-black/40 dark:text-white rounded-[5px] cursor-pointer">
           <FontAwesomeIcon className="w-5 h-5" icon={["fas", "gear"]} /> Camera
           Settings
         </div>,
-        <div className="px-2 py-[1px] bg-blue-500 text-white hover:bg-blue-600 dark:bg-black/40 dark:text-white rounded-[5px]">
+        <div className="px-2 py-[1px] bg-blue-500 text-white hover:bg-blue-600 dark:bg-black/40 dark:text-white rounded-[5px] cursor-pointer">
           + Add Camera
         </div>,
       ],
@@ -120,27 +120,25 @@ export default function Feed() {
   }, []);
 
   return (
-    <div className="pt-18 dark:bg-neutral-900">
+    <div className="page-style">
       <Nav />
-      <div className="feed-area px-[10%] pt-10 grid gap-5">
-        <GradientHeader />
-        <Sorter />
-        <ul className="flex gap-1">
-          {tags.map((tag) => (
-            <li className={`shaded-texts ${tag.color} relative`}>
-              <FontAwesomeIcon
-                className=""
-                icon={[tag.icon[0] as IconPrefix, tag.icon[1] as IconName]}
-              />{" "}
-              {tag.value} {tag.name}
-              {tag.name === "Offline" && (
-                <div className="absolute w-4 h-px bg-(--red-primary) rotate-45 top-[2px] left-[10px] origin-left"></div>
-              )}
-            </li>
-          ))}
-        </ul>
-        <CameraView />
-      </div>
+      <GradientHeader />
+      <Sorter />
+      <ul className="flex gap-1">
+        {tags.map((tag) => (
+          <li className={`shaded-texts ${tag.color} relative`}>
+            <FontAwesomeIcon
+              className=""
+              icon={[tag.icon[0] as IconPrefix, tag.icon[1] as IconName]}
+            />{" "}
+            {tag.value} {tag.name}
+            {tag.name === "Offline" && (
+              <div className="absolute w-4 h-px bg-(--red-primary) rotate-45 top-[2px] left-[10px] origin-left"></div>
+            )}
+          </li>
+        ))}
+      </ul>
+      <CameraView />
     </div>
   );
 }

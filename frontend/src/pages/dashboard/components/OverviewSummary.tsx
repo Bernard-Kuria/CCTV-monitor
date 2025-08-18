@@ -82,7 +82,9 @@ export default function OverviewSummary() {
                   142
                 </div>
               </h3>
-              <div className="progress-bar after:w-[calc(142/155*100%)]"></div>
+              <div
+                className={`progress-bar after:w-[calc(${142}/155*100%)]`}
+              ></div>
             </div>
             <div className="offline mb-3">
               <h3 className="text-normal w-[100%] relative">
