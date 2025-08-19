@@ -86,7 +86,7 @@ export default function DashSection() {
       <div className="grid grid-cols-2 h-[400px] gap-5">
         <div className="component-border p-5">
           <div className="h-[100px]">
-            <div className="flex gap-2">
+            <div className="flex gap-2 dark:text-white">
               <FontAwesomeIcon icon={["fas", "arrow-trend-up"]} />
               <h2 className="text-bold">System Uptime Trend</h2>
             </div>
@@ -99,7 +99,7 @@ export default function DashSection() {
 
         <div className="component-border p-5">
           <div className="h-[100px]">
-            <div className="flex gap-2">
+            <div className="flex gap-2 dark:text-white">
               <FontAwesomeIcon icon={["fas", "chart-pie"]} />
               <h2 className="text-bold">Camera Status Distribution</h2>
             </div>
@@ -113,7 +113,7 @@ export default function DashSection() {
 
       <div className="component-border p-5 h-[600px]">
         <div className="h-[50px]">
-          <div className="flex gap-2">
+          <div className="flex gap-2 dark:text-white">
             <FontAwesomeIcon icon={["fas", "chart-column"]} />
             <h2 className="text-bold">Incident tracking and Resolution</h2>
           </div>

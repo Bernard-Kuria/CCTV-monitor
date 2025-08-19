@@ -5,8 +5,33 @@ import { useContext, useEffect } from "react";
 import { BarContext } from "../../../glob-components/charts/ChartContext";
 
 //assets
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
 
 export default function Financial() {
+  const analysis = [
+    {
+      textColor: "text-green-600",
+      icon: ["fas", "arrow-trend-up"],
+      title: "Monthly Recurring Revenue",
+      value: "%" + 15200,
+      valueInfo: "↑" + 8.3 + "%" + "growth",
+    },
+    {
+      textColor: "text-orange-600",
+      icon: ["fas", "people-group"],
+      title: "Average Contract Value",
+      value: "%" + 27262,
+      valueInfo: "4 active clients",
+    },
+    {
+      textColor: "text-blue-600",
+      icon: ["fas", "chart-pie"],
+      title: "Profit Margin",
+      value: 34.7 + "%",
+      valueInfo: "↑" + 2.1 + "%" + "increase",
+    },
+  ];
   const barContext = useContext(BarContext);
 
   if (!barContext) {
@@ -45,6 +70,31 @@ export default function Financial() {
     <div className="grid gap-10">
       <div className="component-border w-full p-10 ">
         <BarGraph />
+      </div>
+
+      <div className={`grid grid-cols-${analysis.length} gap-5`}>
+        {analysis.map((item, index) => (
+          <div
+            key={index}
+            className="component-border flex justify-between h-30 p-5 items-center"
+          >
+            <div>
+              <div className="mini-text-normal">{item.title}</div>
+              <div className="text-[20px] font-bold dark:text-gray-200">
+                {item.value}
+              </div>
+              <div className={`${item.textColor} text-[12px]`}>
+                {item.valueInfo}
+              </div>
+            </div>
+            <div className="">
+              <FontAwesomeIcon
+                className={`${item.textColor} text-[22px]`}
+                icon={[item.icon[0] as IconPrefix, item.icon[1] as IconName]}
+              />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
