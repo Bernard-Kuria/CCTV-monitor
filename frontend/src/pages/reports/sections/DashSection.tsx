@@ -5,22 +5,24 @@ import { useContext, useEffect } from "react";
 import {
   LineContext,
   PieContext,
+  BarContext,
 } from "../../../glob-components/charts/ChartContext";
 
 //assets
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { StackedBar } from "../../../glob-components/charts/StackedBar";
 
 export default function DashSection() {
-  const lContext = useContext(LineContext);
-  const pContext = useContext(PieContext);
+  const lineContext = useContext(LineContext);
+  const pieContext = useContext(PieContext);
+  const barContext = useContext(BarContext);
 
-  if (!lContext || !pContext) {
+  if (!lineContext || !pieContext || !barContext) {
     throw new Error("context must be used within a provider");
   }
 
-  const { LineGraph, setLineProps } = lContext;
-  const { PieDoughnut, setPieProps } = pContext;
+  const { LineGraph, setLineProps } = lineContext;
+  const { PieDoughnut, setPieProps } = pieContext;
+  const { BarGraph, setBarProps } = barContext;
 
   useEffect(() => {
     setLineProps({
@@ -32,6 +34,52 @@ export default function DashSection() {
   useEffect(() => {
     setPieProps({ pieData: [80, 15, 5] });
   }, [setPieProps]);
+
+  useEffect(() => {
+    setBarProps({
+      labels: [
+        "1/1/2024",
+        "1/8/2024",
+        "1/15/2024",
+        "1/22/2024",
+        "1/29/2024",
+        "2/5/2024",
+        "2/12/2024",
+      ],
+      dataset: [
+        {
+          label: "Critical",
+          data: [0, 1, 2, 1, 3, 2, 0],
+          backgroundColor: "rgb(255, 20, 60)",
+          stack: "Stack 0",
+        },
+        {
+          label: "High",
+          data: [1, 2, 0, 3, 1, 4, 2],
+          backgroundColor: "rgb(255, 205, 22)",
+          stack: "Stack 0",
+        },
+        {
+          label: "Low",
+          data: [2, 1, 3, 0, 2, 1, 4],
+          backgroundColor: "rgb(255, 99, 71)",
+          stack: "Stack 0",
+        },
+        {
+          label: "Medium",
+          data: [4, 3, 2, 1, 5, 2, 3],
+          backgroundColor: "rgb(50, 205, 50)",
+          stack: "Stack 0",
+        },
+        {
+          label: "Resolved",
+          data: [7, 5, 4, 6, 8, 7, 9],
+          backgroundColor: "rgb(80, 25, 235)",
+          stack: "Stack 1",
+        },
+      ],
+    });
+  }, []);
 
   return (
     <div className="grid gap-10">
@@ -74,7 +122,7 @@ export default function DashSection() {
           </h4>
         </div>
         <div className="pl-10">
-          <StackedBar />
+          <BarGraph />
         </div>
       </div>
     </div>

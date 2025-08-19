@@ -23,6 +23,7 @@ import {
   faAngleLeft,
   faChartPie,
   faChartColumn,
+  faSackDollar,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -75,5 +76,6 @@ library.add(
   faAngleRight,
   faChartPie,
   faAngleLeft,
-  faChartColumn
+  faChartColumn,
+  faSackDollar
 );

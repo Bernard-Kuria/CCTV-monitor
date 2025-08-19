@@ -23,5 +23,25 @@ export type LineContextType = {
   LineGraph: () => JSX.Element;
 };
 
+// Bar chart Props
+type datasetType = {
+  label: string;
+  data: number[];
+  backgroundColor: string;
+  stack: string;
+};
+
+export type barProps = {
+  labels: string[];
+  dataset: datasetType[];
+};
+
+export type BarContextType = {
+  barProps: barProps;
+  setBarProps: (props: barProps) => void;
+  BarGraph: () => JSX.Element;
+};
+
 export const LineContext = createContext<LineContextType | null>(null);
 export const PieContext = createContext<PieContextType | null>(null);
+export const BarContext = createContext<BarContextType | null>(null);

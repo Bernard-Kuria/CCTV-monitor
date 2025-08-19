@@ -9,7 +9,33 @@
 
 //assets
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LineNonShaded } from "../../../glob-components/charts/LineNonShaded";
+import type { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
+
+const analysis = [
+  {
+    textColor: "text-blue-600",
+    icon: ["far", "clock"],
+    value: "3.2 hrs",
+    valueInfo: "Avg Resolution Time",
+    description: "↓ 0.8hrs vs last month",
+  },
+  {
+    textColor: "text-green-600",
+    icon: ["fas", "shield"],
+    value: "99.7%",
+    valueInfo: "Security Uptime",
+    description: "↑ 0.2% Improvement",
+  },
+  {
+    textColor: "text-purple-600",
+    icon: ["fas", "bolt"],
+    value: "847",
+    valueInfo: "Events Processed",
+    description: "This month",
+  },
+];
 
 export default function Performance() {
   //   const lContext = useContext(LineContext);=
@@ -64,15 +90,38 @@ export default function Performance() {
                 {metric.name}
                 <span className="absolute right-0">{metric.value}%</span>
               </div>
-              <div className="h-2 bg-gray-200 rounded relative overflow-hidden">
+              <div className="h-2 bg-gray-200 dark:bg-gray-600 rounded relative overflow-hidden">
                 <div
-                  className="absolute left-0 top-0 h-full bg-black"
+                  className="absolute left-0 top-0 h-full bg-black dark:bg-gray-200"
                   style={{ width: `${metric.value}%` }}
                 ></div>
               </div>
             </div>
           ))}
         </div>
+      </div>
+
+      <div className={`grid grid-cols-${analysis.length} gap-5`}>
+        {analysis.map((item, index) => (
+          <div
+            key={index}
+            className="component-border grid grid-cols-1 text-center h-30 p-5"
+          >
+            <div>
+              <FontAwesomeIcon
+                className={`${item.textColor} text-[22px]`}
+                icon={[item.icon[0] as IconPrefix, item.icon[1] as IconName]}
+              />
+            </div>
+            <div className="text-[20px] font-bold dark:text-gray-200">
+              {item.value}
+            </div>
+            <div className="mini-text-normal">{item.valueInfo}</div>
+            <div className={`text-[11px] ${item.textColor}`}>
+              {item.description}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

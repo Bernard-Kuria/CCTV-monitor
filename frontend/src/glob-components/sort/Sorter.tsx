@@ -29,7 +29,12 @@ export default function TaskSorter({
         )}
 
         {Object.entries(options).map(([selector, options]) => (
-          <select name="" id={`${selector}`} className="selector">
+          <select
+            key={selector}
+            name=""
+            id={`${selector}`}
+            className="selector"
+          >
             {options.map((option) => (
               <option key={option} value={option}>
                 {option}

@@ -30,7 +30,7 @@ export default function Analytics() {
   ];
   return (
     <div className="grid gap-5">
-      <div className="grid grid-cols-4 gap-5">
+      <div className={`grid grid-cols-${analysis.length} gap-5`}>
         {analysis.map((item, index) => (
           <div
             key={index}
@@ -42,7 +42,9 @@ export default function Analytics() {
                 icon={[item.icon[0] as IconPrefix, item.icon[1] as IconName]}
               />
             </div>
-            <div className="text-[20px] font-bold">{item.value}</div>
+            <div className="text-[20px] font-bold dark:text-gray-200">
+              {item.value}
+            </div>
             <div className="mini-text-normal">{item.valueInfo}</div>
           </div>
         ))}
@@ -53,7 +55,7 @@ export default function Analytics() {
           <div className="text-bold">Maintenance Performance</div>
           <div>Track completion rate and efficiency metrics over time</div>
         </div>
-        <div className="grid justify-center items-center text-center translate-y-[100%]">
+        <div className="grid justify-center items-center text-center translate-y-[100%] dark:text-gray-200">
           <div>
             <FontAwesomeIcon
               className={"text-values"}
