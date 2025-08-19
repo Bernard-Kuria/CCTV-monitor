@@ -1,7 +1,3 @@
-
-
 export default function Task() {
-  return (
-    
-  );
+  return null;
 }
