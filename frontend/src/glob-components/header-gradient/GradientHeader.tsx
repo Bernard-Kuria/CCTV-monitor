@@ -28,22 +28,21 @@ export default function GradientHeader({
         </div>
       </div>
 
-      <ul className="cards flex justify-between w-full">
+      <ul className="cards flex justify-between gap-5 w-full">
         {cards.map((card) => (
-          <li
-            key={card.cardTitle}
-            className="card flex items-center leading-tight"
-          >
-            <FontAwesomeIcon
-              className={`text-[15px] p-2 rounded-[10px] ${card.color[0]} mr-2 text-white`}
-              icon={[card.icon[0] as IconPrefix, card.icon[1] as IconName]}
-            />
-            <div>
-              <h4 className="mini-text-normal">{card.cardTitle}</h4>
-              <h1 className="text-values">{card.cardValue}</h1>
-              <h5 className={`text-[12px] ${card.color[1]}`}>
-                {card.cardAdditionalInfo}
-              </h5>
+          <li key={card.cardTitle} className="card flex-1">
+            <div className="flex items-center leading-tight">
+              <FontAwesomeIcon
+                className={`text-[15px] p-2 rounded-[10px] ${card.color[0]} mr-2 text-white`}
+                icon={[card.icon[0] as IconPrefix, card.icon[1] as IconName]}
+              />
+              <div>
+                <h4 className="mini-text-normal">{card.cardTitle}</h4>
+                <h1 className="text-values">{card.cardValue}</h1>
+                <h5 className={`text-[12px] ${card.color[1]}`}>
+                  {card.cardAdditionalInfo}
+                </h5>
+              </div>
             </div>
           </li>
         ))}

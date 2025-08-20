@@ -24,7 +24,8 @@ export default function Reports() {
   }
 
   const { GradientHeader, setHeaderProps } = Headercontext;
-  const { setSectionProps, activeSection, SectionNav } = Sectioncontext;
+  const { setSectionProps, activeSection, SectionNav, handleSectionChange } =
+    Sectioncontext;
   const { messageProps, setOptions, Sorter, setEl } = Sortercontext;
 
   useEffect(() => {
@@ -93,6 +94,7 @@ export default function Reports() {
     setSectionProps({
       sections: ["Dashboard", "Performance", "Current Analytics", "Financial"],
     });
+    handleSectionChange("Dashboard");
   }, []);
 
   useEffect(() => {

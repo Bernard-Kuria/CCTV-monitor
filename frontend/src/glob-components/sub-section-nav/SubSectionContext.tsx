@@ -14,6 +14,7 @@ export type SubSectionContextType = {
   setSectionProps: (props: SectionProps) => void;
   activeSection: string;
   SectionNav: () => JSX.Element;
+  handleSectionChange: handleSectionChange;
 };
 
 export const SubSectionContext = createContext<SubSectionContextType | null>(

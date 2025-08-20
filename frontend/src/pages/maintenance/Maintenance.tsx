@@ -28,7 +28,8 @@ export default function Maintenance() {
   }
 
   const { GradientHeader, setHeaderProps } = Headercontext;
-  const { setSectionProps, activeSection, SectionNav } = Sectioncontext;
+  const { setSectionProps, activeSection, SectionNav, handleSectionChange } =
+    Sectioncontext;
   const { messageProps, setOptions, Sorter, setEl } = Sortercontext;
 
   useEffect(() => {
@@ -81,6 +82,7 @@ export default function Maintenance() {
         "Analytics",
       ],
     });
+    handleSectionChange("Task Management");
   }, []);
 
   useEffect(() => {

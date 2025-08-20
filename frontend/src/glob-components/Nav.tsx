@@ -39,7 +39,7 @@ export default function Nav() {
           <li
             className={`flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal ${
               location.pathname === "/" + pageUrl
-                ? "bg-black rounded-[10px] text-white"
+                ? "bg-black rounded-[10px] text-white dark:bg-white dark:text-black"
                 : ""
             } `}
           >
@@ -65,18 +65,18 @@ export default function Nav() {
 
         <button className="button">+ Add Camera</button>
 
-        <div className="relative cursor-pointer">
+        <div className="relative cursor-pointer rounded p-1 hover:bg-gray-200 dark:hover:bg-gray-500 transition">
           <FontAwesomeIcon
-            className="w-5 h-5 text-black"
+            className="w-5 h-5 text-black dark:text-white"
             icon={["far", "bell"]}
           />
-          <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+          <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
             3
           </div>
         </div>
 
         <button
-          className="theme cursor-pointer p-2 rounded hover:bg-gray-200 dark:hover:bg-green-500 transition"
+          className="theme cursor-pointer p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-500 transition"
           onClick={() => setTheme(theme === "bright" ? "dark" : "bright")}
         >
           <FontAwesomeIcon

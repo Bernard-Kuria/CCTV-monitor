@@ -40,6 +40,7 @@ export default function SubSectionProvider({ children }: Props) {
         setSectionProps,
         activeSection,
         SectionNav,
+        handleSectionChange,
       }}
     >
       {children}
