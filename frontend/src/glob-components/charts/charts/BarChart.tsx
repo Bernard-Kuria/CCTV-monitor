@@ -9,7 +9,7 @@ import {
   type ChartOptions,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import type { barProps } from "./ChartContext";
+import type { barProps } from "../ChartContext";
 
 ChartJS.register(
   CategoryScale,

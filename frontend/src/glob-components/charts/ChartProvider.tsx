@@ -8,17 +8,34 @@ import {
   type barProps,
 } from "./ChartContext";
 
-import PieChart from "./PieChart";
-import LineGraphComponent from "./LineShaded";
-import { BarChart } from "./BarChart";
+import PieChart from "./charts/PieChart";
+import LineGraphComponent from "./charts/LineChart";
+import { BarChart } from "./charts/BarChart";
 
 type Props = { children: ReactNode };
 
 export function ChartProvider({ children }: Props) {
   // Line state
   const [lineProps, setLineProps] = useState<LineProps>({
-    data: [98.5, 98, 99.2, 99, 99.8, 99.5],
-    labels: ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    drawOnChartArea: false,
+    datasets: [
+      {
+        label: "Average Response Time (hours)",
+        data: [4.1, 4, 4.2, 4, 4.2, 4.3, 4.1],
+        borderColor: "rgb(30,144,255)",
+        backgroundColor: "rgba(30,144,255,0.5)",
+      },
+    ],
+    scales: {
+      y: {
+        min: 0,
+        max: 8,
+        ticks: {
+          callback: (value: number | string) => String(value),
+        },
+      },
+    },
   });
 
   const LineGraph = () => <LineGraphComponent {...lineProps} />;

@@ -7,15 +7,22 @@ import {
   type ChartData,
   type ChartOptions,
 } from "chart.js";
-import { type LineProps } from "./ChartContext";
+import { type LineProps } from "../ChartContext";
 
 Chart.register(...registerables, Filler);
 
-export default function LineGraph({ data, labels }: LineProps) {
+export default function LineGraph({
+  labels,
+  datasets,
+  drawOnChartArea,
+  scales,
+}: LineProps) {
   const [chartData, setChartData] = useState<ChartData<"line">>({
     labels: [],
     datasets: [],
   });
+
+  const dataset = { ...datasets[0] };
 
   useEffect(() => {
     // Create an offscreen canvas to generate the gradient
@@ -31,11 +38,12 @@ export default function LineGraph({ data, labels }: LineProps) {
       labels: labels,
       datasets: [
         {
-          label: "Uptime",
-          data: data,
+          label: dataset.label,
+          data: dataset.data,
           fill: true,
-          backgroundColor: gradient,
-          borderColor: "rgba(0, 255, 179, 1)",
+          backgroundColor:
+            dataset.backgroundColor === "" ? gradient : dataset.backgroundColor,
+          borderColor: dataset.borderColor,
           tension: 0.4,
           pointRadius: 0,
           pointHitRadius: 10,
@@ -76,27 +84,18 @@ export default function LineGraph({ data, labels }: LineProps) {
       x: {
         grid: {
           drawTicks: true,
-          drawOnChartArea: false,
-        },
-        ticks: {
-          callback: (_val, index) => labels[index] ?? "",
-          maxRotation: 0,
-          autoSkip: false,
-          font: {
-            size: 14,
-          },
+          drawOnChartArea: drawOnChartArea,
         },
       },
       y: {
-        min: 95,
-        max: 100,
+        min: scales?.y?.min,
+        max: scales?.y?.max,
         grid: {
           drawTicks: true,
-          drawOnChartArea: false,
+          drawOnChartArea: drawOnChartArea,
         },
         ticks: {
-          callback: (value) =>
-            [95, 97, 99, 100].includes(+value) ? value.toString() : "",
+          ...(scales?.y?.ticks || {}),
           stepSize: 1,
           font: {
             size: 14,

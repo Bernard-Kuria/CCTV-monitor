@@ -37,6 +37,7 @@ export default function Nav() {
       <ul className="flex w-[550px] justify-between px-2 text-normal">
         {Object.entries(pages).map(([pageUrl, pageName]) => (
           <li
+            key={pageUrl}
             className={`flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal ${
               location.pathname === "/" + pageUrl
                 ? "bg-black rounded-[10px] text-white dark:bg-white dark:text-black"

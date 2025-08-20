@@ -1,16 +1,12 @@
 // modules
-// import { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 
 // components
-// import {
-//   LineContext,
-//   PieContext,
-// } from "../../../glob-components/charts/ChartContext";
+import { LineContext } from "../../../glob-components/charts/ChartContext";
 
 //assets
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { LineNonShaded } from "../../../glob-components/charts/LineNonShaded";
 import type { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
 
 const analysis = [
@@ -38,20 +34,37 @@ const analysis = [
 ];
 
 export default function Performance() {
-  //   const lContext = useContext(LineContext);=
+  const lContext = useContext(LineContext);
 
-  //   if (!lContext || !pContext) {
-  //     throw new Error("context must be used within a provider");
-  //   }
+  if (!lContext) {
+    throw new Error("context must be used within a provider");
+  }
 
-  //   const { LineGraph } = lContext;
+  const { LineGraph, setLineProps } = lContext;
 
-  //   useEffect(() => {
-  //     setLineProps({
-  //       labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-  //       data: [98.5, 98, 99.2, 99, 99.8, 99.5],
-  //     });
-  //   }, [setLineProps]);
+  useEffect(() => {
+    setLineProps({
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      drawOnChartArea: true,
+      datasets: [
+        {
+          label: "Average Response Time (hours)",
+          data: [4.1, 4, 4.2, 4, 4.2, 4.3, 4.1],
+          borderColor: "rgb(30,144,255)",
+          backgroundColor: "transparent",
+        },
+      ],
+      scales: {
+        y: {
+          min: 0,
+          max: 8,
+          ticks: {
+            callback: (value: number | string) => String(value),
+          },
+        },
+      },
+    });
+  }, []);
 
   const metrics = [
     { name: "Resolution Rate", value: 96.2 },
@@ -73,7 +86,9 @@ export default function Performance() {
             </h4>
           </div>
           <div className="pl-10">
-            <LineNonShaded />
+            <div className="h-100">
+              <LineGraph />
+            </div>
           </div>
         </div>
 

@@ -1,3 +1,4 @@
+import type { Point } from "chart.js";
 import { createContext, type JSX } from "react";
 
 // Pie Chart Props
@@ -12,9 +13,28 @@ type PieContextType = {
 };
 
 // Line Chart Props
+type LineDataSets = {
+  label: string;
+  data: (number | Point | null)[];
+  borderColor: string;
+  backgroundColor: string;
+};
+
+type y = {
+  min: number;
+  max: number;
+  ticks: {
+    callback: (value: number | string) => string;
+  };
+};
+
 export type LineProps = {
   labels: string[];
-  data: number[];
+  datasets: LineDataSets[];
+  drawOnChartArea?: boolean;
+  scales?: {
+    y?: y;
+  };
 };
 
 export type LineContextType = {

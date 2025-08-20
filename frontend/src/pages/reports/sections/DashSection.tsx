@@ -27,7 +27,26 @@ export default function DashSection() {
   useEffect(() => {
     setLineProps({
       labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-      data: [98.5, 98, 99.2, 99, 99.8, 99.5],
+      drawOnChartArea: true,
+      datasets: [
+        {
+          label: "Uptime",
+          data: [98.5, 98, 99.2, 99, 99.8, 99.5],
+          borderColor: "rgba(0, 255, 179, 2)",
+          backgroundColor: "",
+        },
+      ],
+      scales: {
+        y: {
+          min: 95,
+          max: 100,
+          ticks: {
+            callback: function (value) {
+              return [95, 97, 99, 100].includes(+value) ? value.toString() : "";
+            },
+          },
+        },
+      },
     });
   }, [setLineProps]);
 
