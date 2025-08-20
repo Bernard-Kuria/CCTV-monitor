@@ -1,11 +1,21 @@
 import { useContext } from "react";
 import { ThemeContext } from "./dark-theme/ThemeUserContext";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+const pages = {
+  "": "dashboard",
+  feed: "Live Cameras",
+  management: "Manage Cameras",
+  clients: "Clients",
+  maintenance: "Maintenance",
+  reports: "Reports",
+};
+
 export default function Nav() {
   const context = useContext(ThemeContext);
+  const location = useLocation();
   if (!context) throw new Error("ThemeContext is missing!");
 
   const { theme, setTheme } = context;
@@ -13,36 +23,29 @@ export default function Nav() {
   return (
     <nav className="inline-flex items-center justify-between w-full px-4 py-2 shadow-[0_4px_6px_-1px_rgba(51,51,51,_0.1)] fixed backdrop-blur h-18 left-0 top-0 z-[2] dark:shadow-[0_4px_6px_-1px_rgba(153,153,153,_0.1)]">
       <div className="flex items-center gap-2">
-        <div className="py-2 px-1 bg-black rounded-[10px]">
+        <div className="py-2 px-1 bg-black rounded-[10px] bg-linear-135 from-blue-500 to-red-500">
           <FontAwesomeIcon
-            className="h-8 w-8 object-cover rounded-full text-white"
+            className="h-8 w-8 object-cover rounded-full text-black"
             icon={["far", "camera"]}
           />
         </div>
-        <span className="font-bold text-md w-20 dark:text-gray-100">
+        <span className="bg-linear-135 from-blue-500 to-red-500 text-transparent bg-clip-text font-bold text-md w-20">
           CCTV Monitor
         </span>
       </div>
 
       <ul className="flex w-[550px] justify-between px-2 text-normal">
-        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
-          <Link to={`../`}>dashboard</Link>
-        </li>
-        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
-          <Link to={`../feed`}>Live Cameras</Link>
-        </li>
-        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
-          <Link to={`../management`}>Manage Cameras</Link>
-        </li>
-        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
-          <Link to={`../clients`}>Clients</Link>
-        </li>
-        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
-          <Link to={`../maintenance`}>Maintenance</Link>
-        </li>
-        <li className="flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal hover:text-black">
-          <Link to={`../reports`}>Reports</Link>
-        </li>
+        {Object.entries(pages).map(([pageUrl, pageName]) => (
+          <li
+            className={`flex-1 flex justify-center items-center text-center px-1 break-words whitespace-normal ${
+              location.pathname === "/" + pageUrl
+                ? "bg-black rounded-[10px] text-white"
+                : ""
+            } `}
+          >
+            <Link to={`../${pageUrl}`}>{pageName}</Link>
+          </li>
+        ))}
       </ul>
 
       <div className="flex items-center gap-4">

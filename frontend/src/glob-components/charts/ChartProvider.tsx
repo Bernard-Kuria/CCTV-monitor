@@ -8,7 +8,7 @@ import {
   type barProps,
 } from "./ChartContext";
 
-import Doughnut from "./Doughnut";
+import PieChart from "./PieChart";
 import LineGraphComponent from "./LineShaded";
 import { BarChart } from "./BarChart";
 
@@ -26,7 +26,7 @@ export function ChartProvider({ children }: Props) {
   // Pie state
   const [pieProps, setPieProps] = useState<PieProps>({ pieData: [80, 15, 5] });
 
-  const PieDoughnut = () => <Doughnut {...pieProps} />;
+  const PieDoughnut = () => <PieChart {...pieProps} />;
 
   // Bar state
 
