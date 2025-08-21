@@ -30,11 +30,11 @@ export default function Analytics() {
   ];
   return (
     <div className="grid gap-5">
-      <div className={`grid grid-cols-${analysis.length} gap-5`}>
+      <div className={`flex gap-5`}>
         {analysis.map((item, index) => (
           <div
             key={index}
-            className="component-border grid grid-cols-1 text-center h-30 p-5"
+            className="component-border flex-1 grid grid-cols-1 text-center h-30 p-5"
           >
             <div>
               <FontAwesomeIcon
