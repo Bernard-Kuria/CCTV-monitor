@@ -1,7 +1,12 @@
+// modules
 import { useContext } from "react";
-import { ThemeContext } from "./dark-theme/ThemeUserContext";
 import { Link, useLocation } from "react-router-dom";
 
+// files
+import { ThemeContext } from "./globalContext";
+import { notifications } from "../data";
+
+// assets
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const pages = {
@@ -72,7 +77,7 @@ export default function Nav() {
             icon={["far", "bell"]}
           />
           <div className="absolute -top-0 -right-0 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
-            3
+            {notifications.length}
           </div>
         </div>
 

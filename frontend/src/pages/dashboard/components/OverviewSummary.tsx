@@ -3,21 +3,18 @@ import {
   LineContext,
   PieContext,
 } from "../../../glob-components/charts/ChartContext";
+import ProgressBar from "../../../glob-components/ProgressBar";
 
 export default function OverviewSummary() {
-  const lContext = useContext(LineContext);
-  const pContext = useContext(PieContext);
+  const lineContext = useContext(LineContext);
+  const pieContext = useContext(PieContext);
 
-  if (!lContext) {
+  if (!lineContext || !pieContext) {
     throw new Error("LineGraph must be used within a LineGraphProvider");
   }
 
-  if (!pContext) {
-    throw new Error("PieDoughnut must be used within a PieDoughnutProvider");
-  }
-
-  const { LineGraph, setLineProps } = lContext;
-  const { PieDoughnut, setPieProps } = pContext;
+  const { LineGraph, setLineProps } = lineContext;
+  const { PieDoughnut, setPieProps } = pieContext;
 
   useEffect(() => {
     setLineProps({
@@ -101,9 +98,7 @@ export default function OverviewSummary() {
                   142
                 </div>
               </h3>
-              <div
-                className={`progress-bar after:w-[calc(${142}/155*100%)]`}
-              ></div>
+              <ProgressBar value={142 / 155} style="default" />
             </div>
             <div className="offline mb-3">
               <h3 className="text-normal w-[100%] relative">
@@ -112,7 +107,7 @@ export default function OverviewSummary() {
                   8
                 </div>
               </h3>
-              <div className="progress-bar after:w-[calc(8/155*100%)]"></div>
+              <ProgressBar value={8 / 155} style="default" />
             </div>
             <div className="maintenance mb-3">
               <h3 className="text-normal w-[100%] relative">
@@ -121,7 +116,7 @@ export default function OverviewSummary() {
                   5
                 </div>
               </h3>
-              <div className="progress-bar after:w-[calc(5/155*100%)]"></div>
+              <ProgressBar value={5 / 155} style="default" />
             </div>
           </div>
           <div className="flex justify-center h-[50%] mt-8">

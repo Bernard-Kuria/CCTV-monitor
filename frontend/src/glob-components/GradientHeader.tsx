@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { type GradientHeaderProps } from "./GradientUserContext";
+import { type GradientHeaderProps } from "./globalContext";
 import type { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
 
 export default function GradientHeader({

@@ -7,7 +7,7 @@ import {
   type ChartData,
   type ChartOptions,
 } from "chart.js";
-import { type LineProps } from "../ChartContext";
+import { type LineProps } from "./ChartContext";
 
 Chart.register(...registerables, Filler);
 

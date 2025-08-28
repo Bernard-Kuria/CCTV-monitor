@@ -1,9 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Nav from "../../glob-components/Nav";
 import CameraView from "./components/CameraView";
-import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
+import {
+  GradientContext,
+  SorterContext,
+} from "../../glob-components/globalContext";
 import { useContext, useEffect } from "react";
-import { SorterContext } from "../../glob-components/sort/SorterContext";
 import type { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
 
 const tags = [
@@ -125,8 +127,8 @@ export default function Feed() {
       <GradientHeader />
       <Sorter />
       <ul className="flex gap-1">
-        {tags.map((tag) => (
-          <li className={`shaded-texts ${tag.color} relative`}>
+        {tags.map((tag, index) => (
+          <li key={index} className={`shaded-texts ${tag.color} relative`}>
             <FontAwesomeIcon
               className=""
               icon={[tag.icon[0] as IconPrefix, tag.icon[1] as IconName]}

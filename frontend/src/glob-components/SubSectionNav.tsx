@@ -1,8 +1,14 @@
-type SectionNavProps = {
-  sections: string[];
-  activeSection: string;
-  handleSectionChange: (section: string) => void;
+import type {
+  SectionProps,
+  ActiveSectionType,
+  handleSectionChange,
+} from "./globalContext";
+
+type handleSection = {
+  handleSectionChange: handleSectionChange;
 };
+
+type SectionNavProps = SectionProps & ActiveSectionType & handleSection;
 
 export default function SubSectionNav({
   sections,

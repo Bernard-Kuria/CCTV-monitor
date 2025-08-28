@@ -4,9 +4,11 @@ import { useContext, useEffect } from "react";
 
 // components
 import Nav from "../../glob-components/Nav";
-import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
-import { SubSectionContext } from "../../glob-components/sub-section-nav/SubSectionContext";
-import { SorterContext } from "../../glob-components/sort/SorterContext";
+import {
+  GradientContext,
+  SubSectionContext,
+  SorterContext,
+} from "../../glob-components/globalContext";
 
 // sections
 import DashSection from "./sections/DashSection";

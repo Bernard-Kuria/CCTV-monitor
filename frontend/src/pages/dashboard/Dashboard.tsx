@@ -3,7 +3,7 @@ import Nav from "../../glob-components/Nav.tsx";
 import HealthPerformance from "./components/HealthPerformance.tsx";
 import OverviewSummary from "./components/OverviewSummary.tsx";
 import StatusMonitor from "./components/StatusMonitor.tsx";
-import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext.tsx";
+import { GradientContext } from "../../glob-components/globalContext.tsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Dashboard() {

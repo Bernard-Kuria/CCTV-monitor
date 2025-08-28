@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { type SorterProps, type element } from "./SorterContext";
+import { type SorterProps, type element } from "./globalContext";
 
 type TaskSorterProps = SorterProps & element;
 

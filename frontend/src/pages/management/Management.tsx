@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Nav from "../../glob-components/Nav";
 import Camera from "./components/Camera";
-import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
+import { GradientContext } from "../../glob-components/globalContext";
 import { useContext, useEffect } from "react";
 
 export default function Management() {

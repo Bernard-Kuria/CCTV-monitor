@@ -1,8 +1,10 @@
-import Nav from "../../glob-components/Nav";
-import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
 import { useContext, useEffect } from "react";
+import Nav from "../../glob-components/Nav";
+import {
+  GradientContext,
+  SorterContext,
+} from "../../glob-components/globalContext";
 import Client from "./components/Client";
-import { SorterContext } from "../../glob-components/sort/SorterContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Clients() {
@@ -83,8 +85,10 @@ export default function Clients() {
       <Sorter />
 
       <ul className="flex flex-wrap gap-2">
-        {arr.map(() => (
-          <Client />
+        {arr.map((_, index) => (
+          <div key={index}>
+            <Client />
+          </div>
         ))}
       </ul>
     </div>

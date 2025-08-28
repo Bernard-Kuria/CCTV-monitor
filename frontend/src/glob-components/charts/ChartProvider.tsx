@@ -8,9 +8,9 @@ import {
   type barProps,
 } from "./ChartContext";
 
-import PieChart from "./charts/PieChart";
-import LineGraphComponent from "./charts/LineChart";
-import { BarChart } from "./charts/BarChart";
+import PieChart from "./PieChart";
+import LineGraphComponent from "./LineChart";
+import { BarChart } from "./BarChart";
 
 type Props = { children: ReactNode };
 
@@ -46,7 +46,6 @@ export function ChartProvider({ children }: Props) {
   const PieDoughnut = () => <PieChart {...pieProps} />;
 
   // Bar state
-
   const [barProps, setBarProps] = useState<barProps>({
     labels: [
       "1/1/2024",

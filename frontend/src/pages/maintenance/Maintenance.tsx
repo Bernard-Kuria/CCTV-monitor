@@ -2,9 +2,11 @@
 import { useContext, useEffect } from "react";
 
 import Nav from "../../glob-components/Nav";
-import { GradientContext } from "../../glob-components/header-gradient/GradientUserContext";
-import { SubSectionContext } from "../../glob-components/sub-section-nav/SubSectionContext";
-import { SorterContext } from "../../glob-components/sort/SorterContext";
+import {
+  GradientContext,
+  SubSectionContext,
+  SorterContext,
+} from "../../glob-components/globalContext";
 
 // Sections
 import TaskManagement from "./sections/TaskManagement";
@@ -12,11 +14,6 @@ import CalenderView from "./sections/CalenderView";
 import Technicians from "./sections/Technicians";
 import Analytics from "./sections/Analytics";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//   "Task Management",
-//   "Calender View",
-//   "Technicians",
-//   "Analytics",
-// ];
 
 export default function Maintenance() {
   const Headercontext = useContext(GradientContext);

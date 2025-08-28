@@ -7,7 +7,7 @@ import {
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
-import { type PieProps } from "../ChartContext";
+import { type PieProps } from "./ChartContext";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
