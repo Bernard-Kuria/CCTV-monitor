@@ -5,6 +5,16 @@ import {
 } from "../../../glob-components/charts/ChartContext";
 import ProgressBar from "../../../glob-components/ProgressBar";
 
+import {
+  findTotalCameras,
+  findCamerasByStatus,
+  newCameraInstallments,
+} from "../../../hooks/CameraHooks";
+
+import { SystemHealthCalc } from "../../../hooks/systemHealthCalc";
+
+import { findNotificationsBy } from "../../../hooks/NotificationHooks";
+
 export default function OverviewSummary() {
   const lineContext = useContext(LineContext);
   const pieContext = useContext(PieContext);
@@ -56,16 +66,20 @@ export default function OverviewSummary() {
               <li>
                 <h3 className="mini-text-normal">Total Cameras</h3>
                 <div className="flex items-center gap-2 mt-2">
-                  <h1 className="text-values leading-none">155</h1>
+                  <h1 className="text-values leading-none">
+                    {findTotalCameras()}
+                  </h1>
                   <h4 className="text-(--green-primary) shaded-texts">
-                    +3 this week
+                    +{newCameraInstallments()} this week
                   </h4>
                 </div>
               </li>
               <li>
                 <h3 className="mini-text-normal">System Uptime</h3>
                 <div className="flex items-center gap-2 mt-2">
-                  <h1 className="text-values leading-none">99.1%</h1>
+                  <h1 className="text-values leading-none">
+                    {SystemHealthCalc()}%
+                  </h1>
                   <h4 className="text-(--blue-primary) shaded-texts">
                     24h avg
                   </h4>
@@ -74,7 +88,9 @@ export default function OverviewSummary() {
               <li>
                 <h3 className="mini-text-normal">Active Alerts</h3>
                 <div className="flex items-center gap-2 mt-2">
-                  <h1 className="text-values leading-none">3</h1>
+                  <h1 className="text-values leading-none">
+                    {findNotificationsBy("alert")}
+                  </h1>
                   <h4 className="text-red-500 shaded-texts">Needs attention</h4>
                 </div>
               </li>
@@ -95,28 +111,38 @@ export default function OverviewSummary() {
               <h3 className="text-normal w-[100%] relative">
                 Online
                 <div className="text-bold absolute right-0 top-0 dark:text-gray-300">
-                  142
+                  {findCamerasByStatus("online")}
                 </div>
               </h3>
-              <ProgressBar value={142 / 155} style="default" />
+              <ProgressBar
+                value={findCamerasByStatus("online") / findTotalCameras()}
+                style="default"
+              />
             </div>
             <div className="offline mb-3">
               <h3 className="text-normal w-[100%] relative">
                 Offline
                 <div className="text-bold absolute right-0 top-0 dark:text-gray-300">
-                  8
+                  {findCamerasByStatus("offline")}
                 </div>
               </h3>
-              <ProgressBar value={8 / 155} style="default" />
+              <ProgressBar
+                value={findCamerasByStatus("offline") / findTotalCameras()}
+                style="default"
+              />
             </div>
             <div className="maintenance mb-3">
               <h3 className="text-normal w-[100%] relative">
+                {" "}
                 Maintenance
                 <div className="text-bold absolute right-0 top-0 dark:text-gray-300">
-                  5
+                  {findCamerasByStatus("maintenance")}
                 </div>
               </h3>
-              <ProgressBar value={5 / 155} style="default" />
+              <ProgressBar
+                value={findCamerasByStatus("maintenance") / findTotalCameras()}
+                style="default"
+              />
             </div>
           </div>
           <div className="flex justify-center h-[50%] mt-8">

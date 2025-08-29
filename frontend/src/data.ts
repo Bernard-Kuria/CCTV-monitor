@@ -125,7 +125,7 @@ export const contracts = [
 ];
 
 // ================= DEVICES =================
-export const devices = [
+export const cameras = [
   {
     id: 1,
     client_id: 1,
@@ -136,9 +136,8 @@ export const devices = [
     status: "online",
     last_active: new Date(),
     camera_feed_url: "http://192.168.1.10/stream",
-    installed_on: new Date("2020-02-01"),
+    installed_on: new Date("2025-08-27"),
     uptime_percentage: 99.85, // derived from downtime logs
-    uptime_percentage_prev: 99.65, // derived from downtime logs
     signal_strength: 92, // normalized to % (RSSI / bitrate score)
   },
   {
@@ -153,7 +152,6 @@ export const devices = [
     camera_feed_url: "http://192.168.1.11/stream",
     installed_on: new Date("2021-05-12"),
     uptime_percentage: 87.42,
-    uptime_percentage_prev: 87.4,
     signal_strength: 68,
   },
   {
@@ -168,7 +166,6 @@ export const devices = [
     camera_feed_url: "http://192.168.2.5/stream",
     installed_on: new Date("2022-03-18"),
     uptime_percentage: 99.92,
-    uptime_percentage_prev: 99.0,
     signal_strength: 88,
   },
   {
@@ -183,7 +180,6 @@ export const devices = [
     camera_feed_url: "http://192.168.3.20/stream",
     installed_on: new Date("2021-09-10"),
     uptime_percentage: 96.34,
-    uptime_percentage_prev: 96.45,
     signal_strength: 75,
   },
 ];

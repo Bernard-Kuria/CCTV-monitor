@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ProgressBar from "../../../glob-components/ProgressBar";
-import { clients, devices } from "../../../data";
+import { clients, cameras } from "../../../data";
 import { timeAgoIntl } from "../../../hooks/timeCalculation";
 
 export default function StatusMonitor() {
@@ -15,7 +15,7 @@ export default function StatusMonitor() {
           Camera Monitoring
           <div className="absolute right-5 top-5 text-[12px] flex gap-2">
             {["online", "offline", "maintenance"].map((status) => {
-              const count = devices.filter((d) => d.status === status).length;
+              const count = cameras.filter((d) => d.status === status).length;
 
               return (
                 <div
@@ -55,7 +55,7 @@ export default function StatusMonitor() {
             </tr>
           </thead>
           <tbody>
-            {devices.map((device, index) => {
+            {cameras.map((device, index) => {
               const statusClass =
                 device.uptime_percentage >= 90
                   ? "text-(--green-primary) bg-(--green-light)"

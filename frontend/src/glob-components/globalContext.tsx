@@ -73,28 +73,28 @@ export type GradientHeaderProps = {
       icon: [string, string];
       color: [string, string];
       cardTitle: string;
-      cardValue: string;
+      cardValue: string | number;
       cardAdditionalInfo?: string;
     },
     {
       icon: [string, string];
       color: [string, string];
       cardTitle: string;
-      cardValue: string;
+      cardValue: string | number;
       cardAdditionalInfo?: string;
     },
     {
       icon: [string, string];
       color: [string, string];
       cardTitle: string;
-      cardValue: string;
+      cardValue: string | number;
       cardAdditionalInfo?: string;
     },
     {
       icon: [string, string];
       color: [string, string];
       cardTitle: string;
-      cardValue: string;
+      cardValue: string | number;
       cardAdditionalInfo?: string;
     }
   ];

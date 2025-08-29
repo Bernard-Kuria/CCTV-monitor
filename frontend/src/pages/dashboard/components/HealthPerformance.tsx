@@ -3,13 +3,13 @@ import ProgressBar from "../../../glob-components/ProgressBar";
 import type { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
 
 import {
-  findDevicesByStatus,
-  findTotalDevices,
-} from "../../../hooks/DevicesHooks";
+  findCamerasByStatus,
+  findTotalCameras,
+} from "../../../hooks/CameraHooks";
 
 import {
+  SystemHealthByMonth,
   SystemHealthCalc,
-  SystemHealthCalcPrev,
 } from "../../../hooks/systemHealthCalc";
 
 import {
@@ -42,15 +42,15 @@ export default function HealthPerformance() {
     {
       title: "Online Cameras",
       icon: ["far", "camera"],
-      value: [findDevicesByStatus("online")],
-      diff: findTotalDevices() - findDevicesByStatus("online"),
-      desc: `of ${findTotalDevices()} total cameras`,
+      value: [findCamerasByStatus("online")],
+      diff: findTotalCameras() - findCamerasByStatus("online"),
+      desc: `of ${findTotalCameras()} total cameras`,
     },
     {
       title: "System Health",
       icon: ["fas", "shield"],
       value: [SystemHealthCalc(), "%"],
-      diff: SystemHealthCalc() - SystemHealthCalcPrev(),
+      diff: SystemHealthCalc() - SystemHealthByMonth(new Date().getMonth() + 1),
       desc: `vs yesterday`,
     },
     {
@@ -113,21 +113,21 @@ export default function HealthPerformance() {
                   icon={[info.icon[0] as IconPrefix, info.icon[1] as IconName]}
                 />
               </h1>
-              <p className="flex text-2xl items-center dark:text-gray-200">
+              <div className="flex text-2xl items-center dark:text-gray-200">
                 {info.value[0]}
                 {info.value[1]}
                 <div className={`${diffColor} shaded-texts`}>
                   <FontAwesomeIcon className="" icon={["fas", diffIcon]} />{" "}
                   {info?.diff}
                 </div>
-              </p>
+              </div>
               <div className="text-gray-500">{info.desc}</div>
-              <p className="text-gray-500 text-sm w-[100%] relative">
+              <div className="text-gray-500 text-sm w-[100%] relative">
                 Health
                 <div className="text-gray-500 absolute right-0 top-0">
                   {isNaN(progress) ? 0 : progress}%
                 </div>
-              </p>
+              </div>
               <ProgressBar
                 value={isNaN(progress) ? 0 : progress / 100}
                 bgColor="bg-gray-300"

@@ -6,6 +6,14 @@ import StatusMonitor from "./components/StatusMonitor.tsx";
 import { GradientContext } from "../../glob-components/globalContext.tsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { activeClients } from "../../hooks/ClientsHooks.tsx";
+import {
+  findCamerasByStatus,
+  findTotalCameras,
+} from "../../hooks/CameraHooks.tsx";
+import { SystemHealthByMonth } from "../../hooks/systemHealthCalc.tsx";
+import { findNotificationsBy } from "../../hooks/NotificationHooks.tsx";
+
 export default function Dashboard() {
   const context = useContext(GradientContext);
 
@@ -37,28 +45,30 @@ export default function Dashboard() {
           icon: ["fas", "bolt"],
           color: ["bg-blue-500", "text-blue-500"],
           cardTitle: "Active Clients",
-          cardValue: "123",
+          cardValue: activeClients(),
           cardAdditionalInfo: "All monitored",
         },
         {
           icon: ["far", "camera"],
           color: ["bg-green-500", "text-green-500"],
           cardTitle: "Total Cameras",
-          cardValue: "182",
-          cardAdditionalInfo: "91.6% online",
+          cardValue: findTotalCameras(),
+          cardAdditionalInfo: `${
+            (findCamerasByStatus("online") / findTotalCameras()) * 100
+          }% online`,
         },
         {
           icon: ["fas", "arrow-trend-up"],
           color: ["bg-purple-500", "text-purple-500"],
           cardTitle: "System Uptime",
-          cardValue: "99.2%",
+          cardValue: SystemHealthByMonth(new Date().getMonth() + 1) + "%",
           cardAdditionalInfo: "Last 30 days",
         },
         {
           icon: ["fas", "triangle-exclamation"],
           color: ["bg-orange-500", "text-orange-500"],
           cardTitle: "Active Alerts",
-          cardValue: "3",
+          cardValue: findNotificationsBy("alert"),
           cardAdditionalInfo: "Requires attention",
         },
       ],
