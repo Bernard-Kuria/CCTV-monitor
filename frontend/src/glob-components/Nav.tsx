@@ -35,7 +35,7 @@ export default function Nav() {
           />
         </div>
         <span className="bg-linear-135 from-blue-500 to-red-500 text-transparent bg-clip-text font-bold text-md w-20">
-          CCTV Monitor
+          Lucan
         </span>
       </div>
 
